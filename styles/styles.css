@@ -10,14 +10,14 @@ html {
 
 /*Global Styles*/
 body {
-    font: 12px Roboto, Helvetica, sans-serif;
-    max-width: 70%;
-    min-width: 500px;
+    font: 14px Roboto, Helvetica, sans-serif;
+    max-width: 90%;
+    min-width: 400px;
     margin: 0 auto;
 }
 
 main {
-    margin: 5px;
+    margin: 10px;
 }
 
 h1, h2, h3 {
@@ -69,30 +69,30 @@ header h2 {
 #sidebar {
     float: left;
     width: 25%;
-    border: 5px solid white;
+    border: 10px solid white;
 }
 
 #sidebar #contact {
     background-color: lightgray;
-    font-size: 0.83em;
+    font-size: 1em;
     text-align: center;
     padding: 1px;
 }
 
 #sidebar #skill h2 {
-    font-size: 0.75em;
+    font-size: 1em;
     margin-top: 0;
     margin-bottom: 0;
 }
 
 #sidebar #skill h3 {
     background-color: #e3e7e8;
-    font-size: 0.8em;
+    font-size: 1em;
     text-align: justify;
 }
 
 #sidebar #skill section p {
-    font-size: 0.75em;
+    font-size: 1em;
     margin: 3px 0px;
 }
 
@@ -103,12 +103,12 @@ main, footer {
 }
 
 main p, footer p, footer a, li:before {
-    font-size: 0.9em;
+    font-size: 1em;
     line-height: 20px;
 }
 
 .year {
-    font-size: 0.8em;
+    font-size: 1em;
     text-align: right;
     margin-bottom: 0;
     padding: 0;
