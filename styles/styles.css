@@ -11,13 +11,14 @@ html {
 /*Global Styles*/
 body {
     font: 14px Roboto, Helvetica, sans-serif;
-    max-width: 90%;
-    min-width: 400px;
+    max-width: 95%;
+    min-width: 800px;
     margin: 0 auto;
 }
 
 main {
     margin: 10px;
+    min-width: 400px;
 }
 
 h1, h2, h3 {
