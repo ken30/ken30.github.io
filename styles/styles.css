@@ -55,6 +55,13 @@ ul {
     list-style: none;
 }
 
+li:before {
+    content: "\2713\0020";
+    padding-right: 10px;
+    float: left;
+}
+
+
 /*Top Header*/
 
 header h2 {
