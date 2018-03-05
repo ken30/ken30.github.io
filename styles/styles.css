@@ -63,7 +63,21 @@ li:before {
 }
 
 
-/*Top Header*/
+/* Header */
+
+nav {
+    text-align: center;
+}
+
+nav a {
+    color: gray;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
 
 header h2 {
     color: gray;
