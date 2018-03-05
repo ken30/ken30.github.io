@@ -70,6 +70,8 @@ header h2 {
     float: left;
     width: 25%;
     border: 10px solid white;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #sidebar #contact {
