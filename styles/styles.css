@@ -124,6 +124,14 @@ main p, footer p, footer a, li:before {
     padding: 0;
 }
 
+h4 + .year, p ~ .year {
+    margin-top: 30px;
+}
+
+.year + h3 {
+    line-height: 90%;
+}
+
 /* Footer */
 
 footer {
