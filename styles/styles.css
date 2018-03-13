@@ -11,8 +11,7 @@ html {
 /*Global Styles*/
 body {
     font: 14px Roboto, Helvetica, sans-serif;
-    max-width: 70%;
-    min-width: 800px;
+    max-width: 80%;
     margin: 0 auto;
 }
 
@@ -139,4 +138,18 @@ footer p:last-child {
     margin-bottom: 100px;
 }
 
+@media only screen and (max-width: 900px) {
+    body {
+        min-width: 400px;
+    }
+    
+    nav {
+        display: none;
+    }
+    
+    #education, #experience, #code, #language, #contact {
+        display: block;
+    }
+}
+}
 
