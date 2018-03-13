@@ -62,6 +62,9 @@ li:before {
     float: left;
 }
 
+a:hover {
+    color: #e20f2f;
+}
 
 /* Header */
 
