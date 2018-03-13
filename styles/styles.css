@@ -86,12 +86,17 @@ div + h3 {
     
 }
 
+#education, #experience, #code, #language, #contact {
+    display: none;
+}
+
 /* Header */
 
 nav {
     text-align: center;
     background-color: white;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 nav a {
@@ -130,9 +135,8 @@ footer {
     text-align: center;
 }
 
-footer p {
-    margin-top: 0px;
-    margin-bottom: 0px;
+footer p:last-child {
+    margin-bottom: 100px;
 }
 
 
