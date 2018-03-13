@@ -52,8 +52,12 @@ ul {
 
 li:before {
     content: "\2713\0020";
-    padding-right: 10px;
     float: left;
+}
+
+li p {
+    margin-left: 1.5em;
+    list-style-position: outside;
 }
 
 a:hover {
@@ -75,14 +79,6 @@ main p, footer p, footer a, li:before {
 
 h4 + .year, p ~ .year {
     margin-top: 30px;
-}
-
-.year + h3 {
-    line-height: 90%;
-}
-
-div + h3 {
-    
 }
 
 #education, #experience, #code, #language, #contact {
@@ -143,8 +139,9 @@ footer p:last-child {
         min-width: 400px;
     }
     
-    main {
+    main, footer {
         width: 80%;
+        margin: 0 auto;
     }
     
     nav {
