@@ -1,25 +1,25 @@
 var currentElement = document.getElementById("objective");
+var currentButton = document.getElementById("btnObjective");
 
-function hideCurrentElement() {
-    currentElement.style.display = "none";
-}
+currentButton.style.color = "#e20f2f";
 
-function showCurrentElement() {
-    currentElement.style.display = "block";
-}
-
-function changeElement(newEleID) {
+function changeElement(newEleID, btnName) {
     return function () {
-        hideCurrentElement();
+        currentElement.style.display = "none";
+        currentButton.style.color = "gray"
+        
         currentElement = document.getElementById(newEleID);
-        showCurrentElement();
+        currentButton = document.getElementById(btnName)
+        
+        currentElement.style.display = "block";
+        currentButton.style.color = "#e20f2f";
     }
 }
 
-document.getElementById("btnObjective").onclick = changeElement("objective");
-document.getElementById("btnEducation").onclick = changeElement("education");
-document.getElementById("btnExperience").onclick = changeElement("experience");
-document.getElementById("btnCode").onclick = changeElement("code");
-document.getElementById("btnLanguage").onclick = changeElement("language");
-document.getElementById("btnContact").onclick = changeElement("contact");
+document.getElementById("btnObjective").onclick = changeElement("objective", "btnObjective");
+document.getElementById("btnEducation").onclick = changeElement("education", "btnEducation");
+document.getElementById("btnExperience").onclick = changeElement("experience", "btnExperience");
+document.getElementById("btnCode").onclick = changeElement("code", "btnCode");
+document.getElementById("btnLanguage").onclick = changeElement("language", "btnLanguage");
+document.getElementById("btnContact").onclick = changeElement("contact", "btnContact");
 
