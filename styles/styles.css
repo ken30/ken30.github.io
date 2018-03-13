@@ -143,6 +143,10 @@ footer p:last-child {
         min-width: 400px;
     }
     
+    main {
+        width: 80%;
+    }
+    
     nav {
         display: none;
     }
