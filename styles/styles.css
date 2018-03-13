@@ -11,14 +11,9 @@ html {
 /*Global Styles*/
 body {
     font: 14px Roboto, Helvetica, sans-serif;
-    max-width: 95%;
+    max-width: 70%;
     min-width: 800px;
     margin: 0 auto;
-}
-
-main {
-    margin: 10px;
-    min-width: 400px;
 }
 
 h1, h2, h3 {
@@ -42,14 +37,14 @@ h2 {
 h3 {
     font-size: 1.25em;
     font-weight: bold;
-    margin: 0;
+    margin: 0 auto;
 }
 
 h4 {
     color: #429aff;
     font-size: 1.25em;
     font-weight: normal;
-    margin: 0;
+    margin: 0 auto;
 }
 
 ul {
@@ -66,38 +61,6 @@ a:hover {
     color: #e20f2f;
 }
 
-/* Header */
-
-nav {
-    text-align: center;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: white;
-    height: 40px;
-}
-
-nav a {
-    color: gray;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    display: inline-block;
-    text-decoration: none;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    margin-top: 70px;
-}
-
-header h2 {
-    color: gray;
-    background-color: white;
-    font-size: 1.5em;
-    line-height: 5px;
-}
-
 /*Body*/
 
 main p, footer p, footer a, li:before {
@@ -109,7 +72,6 @@ main p, footer p, footer a, li:before {
     font-size: 1em;
     text-align: right;
     margin-bottom: 0;
-    padding: 0;
 }
 
 h4 + .year, p ~ .year {
@@ -124,6 +86,44 @@ div + h3 {
     
 }
 
+/* Header */
+
+nav {
+    text-align: center;
+    background-color: white;
+    overflow: hidden;
+}
+
+nav a {
+    color: gray;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 700;
+    margin-bottom: 20px;
+    
+}
+
+#job {
+    color: gray;
+    background-color: white;
+    font-size: 1.5em;
+    line-height: 5px;
+}
+
+/*Code*/
+
+#code h3 {
+    margin-top: 10px;
+}
+
+/*Language*/
+
+#language h3 {
+    margin-top: 10px;
+}
+
 /* Footer */
 
 footer {
@@ -134,7 +134,5 @@ footer p {
     margin-top: 0px;
     margin-bottom: 0px;
 }
-
-
 
 
