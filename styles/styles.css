@@ -499,6 +499,140 @@ footer {
 }
 
 /* ===========================
+   Particle Canvas
+   =========================== */
+#hero {
+    position: relative;
+    overflow: hidden;
+}
+
+#hero-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===========================
+   Typed Text
+   =========================== */
+.hero-subtitle {
+    min-height: 1.7em;
+}
+
+.typed-static {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.typed-cursor {
+    animation: blink 0.75s step-end infinite;
+    font-weight: var(--font-light);
+    color: var(--color-primary);
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* ===========================
+   Stats Row
+   =========================== */
+.stats-row {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.25rem;
+    font-weight: var(--font-bold);
+    color: var(--color-primary);
+    line-height: 1.2;
+}
+
+.stat-suffix {
+    font-size: 2.25rem;
+    font-weight: var(--font-bold);
+    color: var(--color-primary);
+    line-height: 1.2;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: var(--font-semibold);
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.25rem;
+}
+
+/* ===========================
+   Stagger Children
+   =========================== */
+.stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.stagger-children.visible > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===========================
+   Parallax
+   =========================== */
+.has-parallax {
+    position: relative;
+    overflow: hidden;
+}
+
+.parallax-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.parallax-shape {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    opacity: 0.08;
+    filter: blur(60px);
+}
+
+.has-parallax > :not(.parallax-bg) {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===========================
    Scroll Animations
    =========================== */
 .animate-on-scroll {
@@ -558,6 +692,19 @@ footer {
     main section:nth-child(even) {
         padding-left: var(--spacing-md);
         padding-right: var(--spacing-md);
+    }
+
+    .parallax-bg {
+        display: none;
+    }
+
+    .stats-row {
+        gap: var(--spacing-sm);
+    }
+
+    .stat-number,
+    .stat-suffix {
+        font-size: 1.75rem;
     }
 }
 
@@ -628,8 +775,31 @@ footer {
     #navbar,
     .hero-ctas,
     .hamburger,
-    .nav-pdf {
+    .nav-pdf,
+    #hero-particles,
+    .parallax-bg,
+    .typed-cursor {
         display: none !important;
+    }
+
+    .typed-static {
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: visible !important;
+        clip: auto !important;
+        white-space: normal !important;
+    }
+
+    #typed-text {
+        display: none !important;
+    }
+
+    .stagger-children > * {
+        opacity: 1 !important;
+        transform: none !important;
     }
 
     /* Base overrides */
@@ -806,5 +976,39 @@ footer {
         opacity: 1;
         transform: none;
         transition: none;
+    }
+
+    .stagger-children > * {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .typed-cursor {
+        animation: none;
+    }
+
+    #hero-particles {
+        display: none;
+    }
+
+    .parallax-bg {
+        display: none;
+    }
+
+    .typed-static {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+    }
+
+    #typed-text,
+    .typed-cursor {
+        display: none;
     }
 }
