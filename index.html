@@ -7,11 +7,20 @@
     <title>Peu Wai Thian | Software Development Manager</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,500&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="styles/styles.css" rel="stylesheet">
 </head>
 <body>
+
+    <!-- Film grain overlay -->
+    <svg class="grain" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+        <filter id="grain-filter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+            <feColorMatrix type="saturate" values="0"/>
+        </filter>
+        <rect width="100%" height="100%" filter="url(#grain-filter)"/>
+    </svg>
 
     <!-- Sticky Nav -->
     <nav id="navbar">
@@ -27,25 +36,31 @@
                 <a href="#education">Education</a>
                 <a href="#contact">Contact</a>
             </div>
-            <button onclick="window.print()" class="nav-pdf" aria-label="Download PDF" title="Download PDF">
-                <i class="fa-solid fa-file-pdf"></i>
-            </button>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button onclick="window.print()" class="nav-pdf" aria-label="Download PDF" title="Download PDF">
+                    <i class="fa-solid fa-file-pdf"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
     <!-- Hero -->
     <header id="hero">
-        <canvas id="hero-particles" aria-hidden="true"></canvas>
-        <div class="hero-content animate-on-scroll">
-            <h1>Peu Wai Thian</h1>
-            <h2>Software Development Manager</h2>
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="hero-content">
+            <h1 class="hero-name">Peu <span class="hero-name--accent">Wai Thian</span></h1>
+            <div class="hero-rule"></div>
+            <h2 class="hero-title">Software Development Manager</h2>
             <p class="hero-subtitle">
                 <span class="typed-static">Fintech · Payment Systems · DevOps</span>
                 <span id="typed-text" data-phrases="Fintech,Payment Systems,DevOps" aria-hidden="true"></span><span class="typed-cursor" aria-hidden="true">|</span>
             </p>
             <div class="hero-ctas">
                 <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                <a href="#experience" class="btn btn-secondary">View Experience</a>
+                <a href="#experience" class="btn btn-outline">View Experience</a>
             </div>
         </div>
     </header>
@@ -54,10 +69,12 @@
 
         <!-- About -->
         <section id="about">
-            <h2 class="section-title animate-on-scroll">
-                <i class="fa-solid fa-user"></i> About Me
-            </h2>
-            <p class="animate-on-scroll">To deepen my expertise in software engineering and DevOps practices, building on my experience in fintech and payment systems, with the goal of becoming a well-rounded engineer capable of owning the full software delivery lifecycle.</p>
+            <div class="section-label animate-on-scroll">
+                <span class="section-num">01</span>
+                <span class="section-rule"></span>
+                <span class="section-name">About</span>
+            </div>
+            <p class="about-text animate-on-scroll">To deepen my expertise in software engineering and DevOps practices, building on my experience in fintech and payment systems, with the goal of becoming a well-rounded engineer capable of owning the full software delivery lifecycle.</p>
 
             <div class="stats-row animate-on-scroll">
                 <div class="stat">
@@ -77,96 +94,106 @@
 
         <!-- Work Experience -->
         <section id="experience">
-            <h2 class="section-title animate-on-scroll">
-                <i class="fa-solid fa-briefcase"></i> Work Experience
-            </h2>
+            <div class="section-label animate-on-scroll">
+                <span class="section-num">02</span>
+                <span class="section-rule"></span>
+                <span class="section-name">Experience</span>
+            </div>
 
             <div class="timeline">
+                <article class="exp-entry animate-on-scroll">
+                    <div class="exp-date">2025 – Present</div>
+                    <div class="exp-body">
+                        <h3>Software Development Manager</h3>
+                        <h4>Swif Fintech Sdn Bhd</h4>
+                        <ul>
+                            <li>Led the team in continuous development and maintenance of payment gateway and related fintech products.</li>
+                            <li>Delivered payment gateway enhancements including terminal integration, POS module, e-invoicing, and e-wallet integration for client acquisition.</li>
+                            <li>Pioneered AI-assisted development workflows across the team, significantly improving productivity in coding, documentation, and reporting.</li>
+                            <li>Supported PCI DSS compliance and multi-intermediary LHDN integration for the payment gateway.</li>
+                        </ul>
+                    </div>
+                </article>
 
-                <div class="timeline-item animate-on-scroll">
-                    <span class="timeline-date">2025 – Present</span>
-                    <h3>Software Development Manager</h3>
-                    <h4>Swif Fintech Sdn Bhd</h4>
-                    <ul>
-                        <li>Led the team in continuous development and maintenance of payment gateway and related fintech products.</li>
-                        <li>Delivered payment gateway enhancements including terminal integration, POS module, e-invoicing, and e-wallet integration for client acquisition.</li>
-                        <li>Pioneered AI-assisted development workflows across the team, significantly improving productivity in coding, documentation, and reporting.</li>
-                        <li>Supported PCI DSS compliance and multi-intermediary LHDN integration for the payment gateway.</li>
-                    </ul>
-                </div>
+                <article class="exp-entry animate-on-scroll">
+                    <div class="exp-date">2024 – 2025</div>
+                    <div class="exp-body">
+                        <h3>Software Development Manager</h3>
+                        <h4>Syntrino Solutions</h4>
+                        <ul>
+                            <li>Led the team in continuous development and maintenance of payment gateway.</li>
+                            <li>Achieved Peppol Certified Service Provider status in production.</li>
+                            <li>Led and supported successful PCI DSS certification, ensuring adherence to all applicable security standards and audit requirements.</li>
+                            <li>Managed infrastructure operations including Linux server administration, networking, database management, and deployment pipelines.</li>
+                        </ul>
+                    </div>
+                </article>
 
-                <div class="timeline-item animate-on-scroll">
-                    <span class="timeline-date">2024 – 2025</span>
-                    <h3>Software Development Manager</h3>
-                    <h4>Syntrino Solutions</h4>
-                    <ul>
-                        <li>Led the team in continuous development and maintenance of payment gateway.</li>
-                        <li>Achieved Peppol Certified Service Provider status in production.</li>
-                        <li>Led and supported successful PCI DSS certification, ensuring adherence to all applicable security standards and audit requirements.</li>
-                        <li>Managed infrastructure operations including Linux server administration, networking, database management, and deployment pipelines.</li>
-                    </ul>
-                </div>
+                <article class="exp-entry animate-on-scroll">
+                    <div class="exp-date">2020 – 2024</div>
+                    <div class="exp-body">
+                        <h3>Developer</h3>
+                        <h4>Syntrino Solutions</h4>
+                        <ul>
+                            <li>Developed and maintained payment gateway across the full stack including frontend, backend API, database, and deployment.</li>
+                            <li>Developed and maintained B2B prepaid app for digital products including mobile app, backend API, and app store deployment.</li>
+                            <li>Administered Linux servers, networking, and databases (MySQL/MariaDB) supporting production environments.</li>
+                            <li>Built and maintained CI/CD pipelines and managed cloud infrastructure on Azure.</li>
+                        </ul>
+                    </div>
+                </article>
 
-                <div class="timeline-item animate-on-scroll">
-                    <span class="timeline-date">2020 – 2024</span>
-                    <h3>Developer</h3>
-                    <h4>Syntrino Solutions</h4>
-                    <ul>
-                        <li>Developed and maintained payment gateway across the full stack including frontend, backend API, database, and deployment.</li>
-                        <li>Developed and maintained B2B prepaid app for digital products including mobile app, backend API, and app store deployment.</li>
-                        <li>Administered Linux servers, networking, and databases (MySQL/MariaDB) supporting production environments.</li>
-                        <li>Built and maintained CI/CD pipelines and managed cloud infrastructure on Azure.</li>
-                    </ul>
-                </div>
+                <article class="exp-entry animate-on-scroll">
+                    <div class="exp-date">2019 – 2020</div>
+                    <div class="exp-body">
+                        <h3>Web Application Developer</h3>
+                        <h4>Asia Pacific University of Technology and Innovation</h4>
+                        <ul>
+                            <li>Led a full-stack project implementing Outcome-based Education Assessment in compliance with the Malaysian Qualification Framework.</li>
+                            <li>Created comprehensive analytical reports for Outcome-based Education Assessment aiding the university in refining programmes and courses.</li>
+                            <li>Created and configured CI/CD pipelines on various projects.</li>
+                            <li>Created scheduled synchronization scripts to extract and transform data across databases with differing schemas.</li>
+                        </ul>
+                    </div>
+                </article>
 
-                <div class="timeline-item animate-on-scroll">
-                    <span class="timeline-date">2019 – 2020</span>
-                    <h3>Web Application Developer</h3>
-                    <h4>Asia Pacific University of Technology and Innovation</h4>
-                    <ul>
-                        <li>Led a full-stack project implementing Outcome-based Education Assessment in compliance with the Malaysian Qualification Framework.</li>
-                        <li>Created comprehensive analytical reports for Outcome-based Education Assessment aiding the university in refining programmes and courses.</li>
-                        <li>Created and configured CI/CD pipelines on various projects.</li>
-                        <li>Created scheduled synchronization scripts to extract and transform data across databases with differing schemas.</li>
-                    </ul>
-                </div>
+                <article class="exp-entry animate-on-scroll">
+                    <div class="exp-date">2018 – 2019</div>
+                    <div class="exp-body">
+                        <h3>R&amp;D Assistant</h3>
+                        <h4>Asia Pacific University of Technology and Innovation</h4>
+                        <ul>
+                            <li>Maintained front-end development of a major application used by academic staff.</li>
+                            <li>Led a full-stack project for university administrators to better manage university programmes.</li>
+                        </ul>
+                    </div>
+                </article>
 
-                <div class="timeline-item animate-on-scroll">
-                    <span class="timeline-date">2018 – 2019</span>
-                    <h3>R&amp;D Assistant</h3>
-                    <h4>Asia Pacific University of Technology and Innovation</h4>
-                    <ul>
-                        <li>Maintained front-end development of a major application used by academic staff.</li>
-                        <li>Led a full-stack project for university administrators to better manage university programmes.</li>
-                    </ul>
-                </div>
-
-                <div class="timeline-item animate-on-scroll">
-                    <span class="timeline-date">2018</span>
-                    <h3>Academic Intern</h3>
-                    <h4>Asia Pacific University of Technology and Innovation</h4>
-                    <ul>
-                        <li>Responsible for front-end development of a major application used by academic staff.</li>
-                        <li>Gained exposure to serverless architecture and cloud deployment concepts.</li>
-                        <li>Worked with Flask, Ionic/Angular, and AWS cloud services for full-stack development.</li>
-                    </ul>
-                </div>
-
+                <article class="exp-entry animate-on-scroll">
+                    <div class="exp-date">2018</div>
+                    <div class="exp-body">
+                        <h3>Academic Intern</h3>
+                        <h4>Asia Pacific University of Technology and Innovation</h4>
+                        <ul>
+                            <li>Responsible for front-end development of a major application used by academic staff.</li>
+                            <li>Gained exposure to serverless architecture and cloud deployment concepts.</li>
+                            <li>Worked with Flask, Ionic/Angular, and AWS cloud services for full-stack development.</li>
+                        </ul>
+                    </div>
+                </article>
             </div>
         </section>
 
         <!-- Skills -->
-        <section id="skills" class="has-parallax">
-            <div class="parallax-bg" aria-hidden="true">
-                <div class="parallax-shape" data-speed="0.3" style="top: 10%; left: -5%;"></div>
-                <div class="parallax-shape" data-speed="0.5" style="bottom: 10%; right: -5%;"></div>
+        <section id="skills">
+            <div class="section-label animate-on-scroll">
+                <span class="section-num">03</span>
+                <span class="section-rule"></span>
+                <span class="section-name">Skills</span>
             </div>
-            <h2 class="section-title animate-on-scroll">
-                <i class="fa-solid fa-code"></i> Skills
-            </h2>
 
             <div class="skills-group animate-on-scroll">
-                <h3><i class="fa-solid fa-laptop-code"></i> Programming Languages / Frameworks</h3>
+                <h3>Programming Languages / Frameworks</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">C# / .NET</span>
@@ -178,7 +205,7 @@
             </div>
 
             <div class="skills-group animate-on-scroll">
-                <h3><i class="fa-solid fa-server"></i> Infrastructure &amp; Tools</h3>
+                <h3>Infrastructure &amp; Tools</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Linux</span>
                     <span class="skill-tag">Git</span>
@@ -197,7 +224,7 @@
             </div>
 
             <div class="skills-group animate-on-scroll">
-                <h3><i class="fa-solid fa-database"></i> Databases &amp; Frameworks</h3>
+                <h3>Databases</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">SQL Server / Azure SQL</span>
                     <span class="skill-tag">MySQL / MariaDB</span>
@@ -206,7 +233,7 @@
             </div>
 
             <div class="skills-group animate-on-scroll">
-                <h3><i class="fa-solid fa-shield-halved"></i> Practices &amp; Methodologies</h3>
+                <h3>Practices &amp; Methodologies</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">PCI DSS</span>
                     <span class="skill-tag">OWASP Top 10</span>
@@ -219,25 +246,27 @@
 
         <!-- Education -->
         <section id="education">
-            <h2 class="section-title animate-on-scroll">
-                <i class="fa-solid fa-graduation-cap"></i> Education
-            </h2>
+            <div class="section-label animate-on-scroll">
+                <span class="section-num">04</span>
+                <span class="section-rule"></span>
+                <span class="section-name">Education</span>
+            </div>
 
             <div class="education-grid">
-                <div class="education-item animate-on-scroll">
-                    <span class="education-year">2016 – 2019</span>
+                <div class="edu-card animate-on-scroll">
+                    <span class="edu-year">2016 – 2019</span>
                     <h3>Bachelor's Degree in Software Engineering</h3>
                     <h4>Asia Pacific University</h4>
                 </div>
 
-                <div class="education-item animate-on-scroll">
-                    <span class="education-year">2015 – 2016</span>
+                <div class="edu-card animate-on-scroll">
+                    <span class="edu-year">2015 – 2016</span>
                     <h3>Foundation in Computing &amp; Technology</h3>
                     <h4>Asia Pacific University</h4>
                 </div>
 
-                <div class="education-item animate-on-scroll">
-                    <span class="education-year">2010 – 2014</span>
+                <div class="edu-card animate-on-scroll">
+                    <span class="edu-year">2010 – 2014</span>
                     <h3>Malaysian Certificate of Education (SPM)</h3>
                     <h4>SMK Raja Ali</h4>
                 </div>
@@ -248,23 +277,27 @@
 
     <!-- Contact / Footer -->
     <footer id="contact">
-        <h2 class="section-title animate-on-scroll">
-            <i class="fa-solid fa-paper-plane"></i> Get in Touch
-        </h2>
+        <div class="section-label animate-on-scroll">
+            <span class="section-num">05</span>
+            <span class="section-rule"></span>
+            <span class="section-name">Contact</span>
+        </div>
         <div class="contact-links animate-on-scroll">
             <a href="mailto:peu.thian@gmail.com" class="contact-link">
-                <i class="fa-solid fa-envelope"></i> peu.thian@gmail.com
+                <i class="fa-solid fa-envelope"></i>
+                <span>peu.thian@gmail.com</span>
             </a>
             <a href="https://github.com/ken30" target="_blank" rel="noopener noreferrer" class="contact-link">
-                <i class="fa-brands fa-github"></i> github.com/ken30
+                <i class="fa-brands fa-github"></i>
+                <span>github.com/ken30</span>
             </a>
             <a href="https://www.linkedin.com/in/peu-wai-thian-51560815a" target="_blank" rel="noopener noreferrer" class="contact-link">
-                <i class="fa-brands fa-linkedin"></i> LinkedIn
+                <i class="fa-brands fa-linkedin"></i>
+                <span>LinkedIn</span>
             </a>
         </div>
     </footer>
 
-    <script src="scripts/particles.js"></script>
     <script src="scripts/main.js"></script>
 </body>
 </html>

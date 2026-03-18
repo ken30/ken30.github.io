@@ -4,6 +4,34 @@
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // ──────────────────────────────
+    // Theme Toggle
+    // ──────────────────────────────
+    const themeToggle = document.getElementById('theme-toggle');
+
+    if (themeToggle) {
+        const stored = localStorage.getItem('theme');
+        if (stored) {
+            document.documentElement.setAttribute('data-theme', stored);
+        }
+
+        function updateIcon() {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            themeToggle.querySelector('i').className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+            themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        }
+
+        updateIcon();
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const next = isDark ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', next);
+            localStorage.setItem('theme', next);
+            updateIcon();
+        });
+    }
+
+    // ──────────────────────────────
     // Scroll Animations
     // ──────────────────────────────
     const animatedEls = document.querySelectorAll('.animate-on-scroll');
@@ -28,7 +56,7 @@
     // Staggered Card Reveals
     // ──────────────────────────────
     if (!prefersReducedMotion) {
-        const staggerContainers = document.querySelectorAll('.timeline, .skill-tags, .education-grid');
+        const staggerContainers = document.querySelectorAll('.skill-tags, .education-grid');
 
         if (staggerContainers.length) {
             const staggerObserver = new IntersectionObserver(
@@ -37,7 +65,6 @@
                         if (entry.isIntersecting) {
                             const children = entry.target.children;
                             for (let i = 0; i < children.length; i++) {
-                                // Remove animate-on-scroll to avoid conflict
                                 children[i].classList.remove('animate-on-scroll');
                                 children[i].style.transitionDelay = Math.min(i * 100, 800) + 'ms';
                             }
@@ -90,7 +117,6 @@
         function update(now) {
             const elapsed = now - start;
             const progress = Math.min(elapsed / duration, 1);
-            // Ease-out cubic
             const eased = 1 - Math.pow(1 - progress, 3);
             el.textContent = Math.round(eased * target);
             if (progress < 1) {
@@ -116,12 +142,10 @@
             const current = phrases[phraseIndex];
 
             if (!isDeleting) {
-                // Typing
                 charIndex++;
                 typedEl.textContent = current.substring(0, charIndex);
 
                 if (charIndex === current.length) {
-                    // Pause before deleting
                     setTimeout(() => {
                         isDeleting = true;
                         typeStep();
@@ -130,14 +154,12 @@
                 }
                 setTimeout(typeStep, 100);
             } else {
-                // Deleting
                 charIndex--;
                 typedEl.textContent = current.substring(0, charIndex);
 
                 if (charIndex === 0) {
                     isDeleting = false;
                     phraseIndex = (phraseIndex + 1) % phrases.length;
-                    // Pause before typing next
                     setTimeout(typeStep, 500);
                     return;
                 }
@@ -146,31 +168,6 @@
         }
 
         typeStep();
-    }
-
-    // ──────────────────────────────
-    // Parallax Scrolling
-    // ──────────────────────────────
-    if (!prefersReducedMotion && window.innerWidth >= 768) {
-        const parallaxShapes = document.querySelectorAll('.parallax-shape');
-
-        if (parallaxShapes.length) {
-            let ticking = false;
-
-            window.addEventListener('scroll', () => {
-                if (!ticking) {
-                    requestAnimationFrame(() => {
-                        const scrollY = window.scrollY;
-                        parallaxShapes.forEach((shape) => {
-                            const speed = parseFloat(shape.dataset.speed) || 0.3;
-                            shape.style.transform = `translateY(${scrollY * speed}px)`;
-                        });
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            }, { passive: true });
-        }
     }
 
     // ──────────────────────────────
@@ -200,7 +197,6 @@
             hamburger.setAttribute('aria-expanded', isOpen);
         });
 
-        // Close menu on link click
         navLinks.querySelectorAll('a').forEach((link) => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('open');
