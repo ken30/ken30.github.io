@@ -10,9 +10,9 @@
 
     if (themeToggle) {
         const stored = localStorage.getItem('theme');
-        if (stored) {
-            document.documentElement.setAttribute('data-theme', stored);
-        }
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initial = stored || (systemDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', initial);
 
         function updateIcon() {
             const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
