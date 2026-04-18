@@ -1,350 +1,461 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="editorial" data-density="cozy">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Peu Wai Thian — Fintech, payment systems, and DevOps.">
-    <title>Peu Wai Thian</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,500&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="styles/styles.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Peu Wai Thian — Software engineer building secure, scalable payment infrastructure. Fintech, payment systems, and DevOps.">
+<title>Peu Wai Thian — Fintech & Payment Systems Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
 
-    <!-- Film grain overlay -->
-    <svg class="grain" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-        <filter id="grain-filter">
-            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
-            <feColorMatrix type="saturate" values="0"/>
-        </filter>
-        <rect width="100%" height="100%" filter="url(#grain-filter)"/>
-    </svg>
+<div class="bg-motif" aria-hidden="true"></div>
 
-    <!-- Sticky Nav -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo">PWT</a>
-            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#achievements">Achievements</a>
-                <a href="#skills">Skills</a>
-                <a href="#education">Education</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="nav-actions">
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-                <button onclick="window.print()" class="nav-pdf" aria-label="Download PDF" title="Download PDF">
-                    <i class="fa-solid fa-file-pdf"></i>
-                </button>
-            </div>
+<nav id="navbar" aria-label="Primary">
+  <div class="wrap nav-inner">
+    <a href="#hero" class="nav-brand">
+      <span class="nav-dot" aria-hidden="true"></span>
+      <span>Peu Wai Thian</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="#about" data-target="about"><span class="nav-num">01</span><span class="nav-label">About</span></a></li>
+      <li><a href="#experience" data-target="experience"><span class="nav-num">02</span><span class="nav-label">Experience</span></a></li>
+      <li><a href="#achievements" data-target="achievements"><span class="nav-num">03</span><span class="nav-label">Work</span></a></li>
+      <li><a href="#skills" data-target="skills"><span class="nav-num">04</span><span class="nav-label">Skills</span></a></li>
+      <li><a href="#education" data-target="education"><span class="nav-num">05</span><span class="nav-label">Education</span></a></li>
+      <li><a href="#contact" data-target="contact"><span class="nav-num">06</span><span class="nav-label">Contact</span></a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero" class="hero">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="mono dim hero-eyebrow">Kuala Lumpur · Malaysia ⟶ Fintech &amp; Payment Systems</span>
+      </div>
+      <div class="reveal" data-delay="120">
+        <h1 class="hero-title">Peu <em>Wai</em> Thian.</h1>
+      </div>
+      <div class="reveal" data-delay="240">
+        <div class="hero-lede">
+          <p class="hero-lede-text">
+            Software engineer building secure, scalable payment infrastructure —
+            from <em>gateway integrations</em> and PCI DSS compliance to
+            <em>cloud operations</em>.
+          </p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-primary">Get in touch</a>
+            <a href="#experience" class="btn">See experience →</a>
+          </div>
         </div>
-    </nav>
+      </div>
+      <div class="reveal" data-delay="360">
+        <dl class="hero-meta">
+          <div>
+            <dt class="mono dim">Currently</dt>
+            <dd>Swif Fintech</dd>
+          </div>
+          <div>
+            <dt class="mono dim">Role</dt>
+            <dd>Software Development Manager</dd>
+          </div>
+          <div>
+            <dt class="mono dim">Focus</dt>
+            <dd>Payment gateway · PCI DSS</dd>
+          </div>
+          <div>
+            <dt class="mono dim">Since</dt>
+            <dd>2020</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
 
-    <!-- Hero -->
-    <header id="hero">
-        <div class="hero-glow" aria-hidden="true"></div>
-        <div class="hero-content">
-            <h1 class="hero-name">Peu <span class="hero-name--accent">Wai Thian</span></h1>
-            <div class="hero-rule"></div>
-            <p class="hero-subtitle">
-                <span class="typed-static">Fintech · Payment Systems · DevOps</span>
-                <span id="typed-text" data-phrases="Fintech,Payment Systems,DevOps" aria-hidden="true"></span><span class="typed-cursor" aria-hidden="true">|</span>
-            </p>
-            <div class="hero-ctas">
-                <a href="#contact" class="btn btn-primary">Get in Touch</a>
-                <a href="#experience" class="btn btn-outline">View Experience</a>
-            </div>
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section">
+    <div class="wrap">
+      <div class="section-label">
+        <span class="section-num">01</span>
+        <span class="section-rule" aria-hidden="true"></span>
+        <span class="section-title">About</span>
+      </div>
+      <div class="about-grid">
+        <div class="reveal">
+          <h2 class="h2">Engineering <em class="accent">trust</em> into systems that move money.</h2>
+          <p class="about-body">
+            Software engineer with 8+ years building and leading fintech products — from payment gateway integrations and PCI DSS compliance to CI/CD pipelines and cloud infrastructure. Hands-on across the full stack, with a focus on secure, scalable systems.
+          </p>
         </div>
-    </header>
-
-    <main>
-
-        <!-- About -->
-        <section id="about">
-            <div class="section-label animate-on-scroll">
-                <span class="section-num">01</span>
-                <span class="section-rule"></span>
-                <span class="section-name">About</span>
+        <div class="reveal" data-delay="150">
+          <div class="stats-grid">
+            <div class="stat">
+              <div class="stat-n" data-count="8" data-suffix="+">0</div>
+              <span class="mono dim">Years experience</span>
             </div>
-            <p class="about-text animate-on-scroll">Software engineer with 8+ years building and leading fintech products — from payment gateway integrations and PCI DSS compliance to CI/CD pipelines and cloud infrastructure. Hands-on across the full stack, with a focus on secure, scalable systems.</p>
-
-            <div class="stats-row animate-on-scroll">
-                <div class="stat">
-                    <span class="stat-number" data-target="8">0</span><span class="stat-suffix">+</span>
-                    <span class="stat-label">Years Experience</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" data-target="2">0</span>
-                    <span class="stat-label">Organizations</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" data-target="5">0</span>
-                    <span class="stat-label">Roles</span>
-                </div>
+            <div class="stat">
+              <div class="stat-n" data-count="3">0</div>
+              <span class="mono dim">Organizations</span>
             </div>
-        </section>
-
-        <!-- Work Experience -->
-        <section id="experience">
-            <div class="section-label animate-on-scroll">
-                <span class="section-num">02</span>
-                <span class="section-rule"></span>
-                <span class="section-name">Experience</span>
+            <div class="stat">
+              <div class="stat-n" data-count="6">0</div>
+              <span class="mono dim">Roles held</span>
             </div>
-
-            <div class="timeline">
-                <article class="exp-entry animate-on-scroll">
-                    <div class="exp-date">2025 – Present</div>
-                    <div class="exp-body">
-                        <h3>Software Development Manager</h3>
-                        <h4>Swif Fintech Sdn Bhd (formerly Syntrino Solutions)</h4>
-                        <ul>
-                            <li>Led the team in continuous development and maintenance of payment gateway and related fintech products.</li>
-                            <li>Delivered payment gateway enhancements including terminal integration, POS module, e-invoicing, and e-wallet integration for client acquisition.</li>
-                            <li>Pioneered AI-assisted development workflows across the team, significantly improving productivity in coding, documentation, and reporting.</li>
-                            <li>Supported PCI DSS compliance and multi-intermediary LHDN integration for the payment gateway.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="exp-entry animate-on-scroll">
-                    <div class="exp-date">2024 – 2025</div>
-                    <div class="exp-body">
-                        <h3>Software Development Manager</h3>
-                        <h4>Syntrino Solutions</h4>
-                        <ul>
-                            <li>Led the team in continuous development and maintenance of payment gateway.</li>
-                            <li>Achieved Peppol Certified Service Provider status in production.</li>
-                            <li>Led and supported successful PCI DSS certification, ensuring adherence to all applicable security standards and audit requirements.</li>
-                            <li>Managed infrastructure operations including Linux server administration, networking, database management, and deployment pipelines.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="exp-entry animate-on-scroll">
-                    <div class="exp-date">2020 – 2024</div>
-                    <div class="exp-body">
-                        <h3>Developer</h3>
-                        <h4>Syntrino Solutions</h4>
-                        <ul>
-                            <li>Developed and maintained payment gateway across the full stack including frontend, backend API, database, and deployment.</li>
-                            <li>Developed and maintained B2B prepaid app for digital products including mobile app, backend API, and app store deployment.</li>
-                            <li>Administered Linux servers, networking, and databases (MySQL/MariaDB) supporting production environments.</li>
-                            <li>Built and maintained CI/CD pipelines and managed cloud infrastructure on Azure.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="exp-entry animate-on-scroll">
-                    <div class="exp-date">2019 – 2020</div>
-                    <div class="exp-body">
-                        <h3>Web Application Developer</h3>
-                        <h4>Asia Pacific University of Technology and Innovation</h4>
-                        <ul>
-                            <li>Led a full-stack project implementing Outcome-based Education Assessment in compliance with the Malaysian Qualification Framework.</li>
-                            <li>Created comprehensive analytical reports for Outcome-based Education Assessment aiding the university in refining programmes and courses.</li>
-                            <li>Created and configured CI/CD pipelines on various projects.</li>
-                            <li>Created scheduled synchronization scripts to extract and transform data across databases with differing schemas.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="exp-entry animate-on-scroll">
-                    <div class="exp-date">2018 – 2019</div>
-                    <div class="exp-body">
-                        <h3>R&amp;D Assistant</h3>
-                        <h4>Asia Pacific University of Technology and Innovation</h4>
-                        <ul>
-                            <li>Maintained front-end development of a major application used by academic staff.</li>
-                            <li>Led a full-stack project for university administrators to better manage university programmes.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="exp-entry animate-on-scroll">
-                    <div class="exp-date">2018</div>
-                    <div class="exp-body">
-                        <h3>Academic Intern</h3>
-                        <h4>Asia Pacific University of Technology and Innovation</h4>
-                        <ul>
-                            <li>Responsible for front-end development of a major application used by academic staff.</li>
-                            <li>Gained exposure to serverless architecture and cloud deployment concepts.</li>
-                            <li>Worked with Flask, Ionic/Angular, and AWS cloud services for full-stack development.</li>
-                        </ul>
-                    </div>
-                </article>
+            <div class="stat">
+              <div class="stat-n" data-text="v4.0.1">v4.0.1</div>
+              <span class="mono dim">PCI DSS certified</span>
             </div>
-        </section>
-
-        <!-- Key Achievements -->
-        <section id="achievements">
-            <div class="section-label animate-on-scroll">
-                <span class="section-num">03</span>
-                <span class="section-rule"></span>
-                <span class="section-name">Key Achievements</span>
-            </div>
-
-            <div class="timeline">
-                <article class="exp-entry animate-on-scroll">
-                    <div class="exp-date">2020 – Present</div>
-                    <div class="exp-body">
-                        <h3>Payment Gateway Platform</h3>
-                        <ul>
-                            <li>Delivered integrations across major payment methods including FPX, credit card processing (MPGS), and popular e-wallets such as Touch 'n Go and DUITNOW QR.</li>
-                            <li>Led the company to achieve and maintain PCI DSS compliance (2024–2026), currently certified under PCI DSS v4.0.1.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="exp-entry animate-on-scroll">
-                    <div class="exp-date">2023</div>
-                    <div class="exp-body">
-                        <h3>Unifi Mobile Dealer App</h3>
-                        <ul>
-                            <li>Independently built and delivered the full backend integration layer connecting Syntrino's solution to TM APIs, powering the Unifi Mobile Dealer App.</li>
-                        </ul>
-                    </div>
-                </article>
-
-                <article class="exp-entry animate-on-scroll">
-                    <div class="exp-date">2025</div>
-                    <div class="exp-body">
-                        <h3>Peppol Certified Service Provider</h3>
-                        <ul>
-                            <li>Helped Syntrino Solutions achieve Peppol Certified Service Provider status in production, enabling compliant e-invoicing for clients.</li>
-                        </ul>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Skills -->
-        <section id="skills">
-            <div class="section-label animate-on-scroll">
-                <span class="section-num">04</span>
-                <span class="section-rule"></span>
-                <span class="section-name">Skills</span>
-            </div>
-
-            <div class="skills-group animate-on-scroll">
-                <h3>Programming Languages / Frameworks</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">C# / .NET</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">TypeScript</span>
-                    <span class="skill-tag">React</span>
-                    <span class="skill-tag">React Native</span>
-                    <span class="skill-tag">Angular</span>
-                    <span class="skill-tag">Ionic</span>
-                    <span class="skill-tag">Flask</span>
-                </div>
-            </div>
-
-            <div class="skills-group animate-on-scroll">
-                <h3>Infrastructure &amp; Tools</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">Linux</span>
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">Azure</span>
-                    <span class="skill-tag">Terraform</span>
-                    <span class="skill-tag">Firebase</span>
-                    <span class="skill-tag">GitLab CI/CD</span>
-                    <span class="skill-tag">GitHub Actions</span>
-                    <span class="skill-tag">RabbitMQ</span>
-                    <span class="skill-tag">Azure Service Bus</span>
-                    <span class="skill-tag">Docker / Container</span>
-                    <span class="skill-tag">OpenTelemetry</span>
-                    <span class="skill-tag">Prometheus</span>
-                    <span class="skill-tag">Jira / Confluence</span>
-                </div>
-            </div>
-
-            <div class="skills-group animate-on-scroll">
-                <h3>Databases</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">SQL Server / Azure SQL</span>
-                    <span class="skill-tag">MySQL / MariaDB</span>
-                    <span class="skill-tag">SQLite</span>
-                </div>
-            </div>
-
-            <div class="skills-group animate-on-scroll">
-                <h3>Practices &amp; Methodologies</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag">DevOps</span>
-                    <span class="skill-tag">PCI DSS</span>
-                    <span class="skill-tag">OWASP Top 10</span>
-                    <span class="skill-tag">OWASP API Security Top 10</span>
-                    <span class="skill-tag">DDD / CQRS</span>
-                    <span class="skill-tag">Peppol / E-Invoicing</span>
-                    <span class="skill-tag">Git Workflows</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section id="education">
-            <div class="section-label animate-on-scroll">
-                <span class="section-num">05</span>
-                <span class="section-rule"></span>
-                <span class="section-name">Education</span>
-            </div>
-
-            <div class="education-grid">
-                <div class="edu-card animate-on-scroll">
-                    <span class="edu-year">2016 – 2019</span>
-                    <h3>Bachelor's Degree in Software Engineering</h3>
-                    <h4>Asia Pacific University &amp; Staffordshire University (Dual Award)</h4>
-                </div>
-
-                <div class="edu-card animate-on-scroll">
-                    <span class="edu-year">2015 – 2016</span>
-                    <h3>Foundation in Computing &amp; Technology</h3>
-                    <h4>Asia Pacific University</h4>
-                </div>
-
-                <div class="edu-card animate-on-scroll">
-                    <span class="edu-year">2010 – 2014</span>
-                    <h3>Malaysian Certificate of Education (SPM)</h3>
-                    <h4>SMK Raja Ali</h4>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Contact / Footer -->
-    <footer id="contact">
-        <div class="section-label animate-on-scroll">
-            <span class="section-num">06</span>
-            <span class="section-rule"></span>
-            <span class="section-name">Contact</span>
+          </div>
         </div>
-        <div class="contact-links animate-on-scroll">
-            <a href="mailto:peu.thian@gmail.com" class="contact-link">
-                <i class="fa-solid fa-envelope"></i>
-                <span>peu.thian@gmail.com</span>
-            </a>
-            <a href="https://github.com/ken30" target="_blank" rel="noopener noreferrer" class="contact-link">
-                <i class="fa-brands fa-github"></i>
-                <span>github.com/ken30</span>
-            </a>
-            <a href="https://www.linkedin.com/in/peu-wai-thian-51560815a" target="_blank" rel="noopener noreferrer" class="contact-link">
-                <i class="fa-brands fa-linkedin"></i>
-                <span>LinkedIn</span>
-            </a>
-        </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script src="scripts/main.js"></script>
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience" class="section">
+    <div class="wrap">
+      <div class="section-label">
+        <span class="section-num">02</span>
+        <span class="section-rule" aria-hidden="true"></span>
+        <span class="section-title">Experience</span>
+      </div>
+      <div class="reveal">
+        <h2 class="h2 section-heading">A <em>hands-on</em> track record.</h2>
+      </div>
+      <ol class="exp-list" role="list">
+
+        <li class="reveal">
+          <button class="exp-btn" aria-expanded="true" data-open="true">
+            <span class="mono dim exp-years">2025 — Present</span>
+            <span class="exp-main">
+              <span class="exp-role">Software Development Manager</span>
+              <span class="exp-org">Swif Fintech Sdn Bhd <em class="exp-org-note">— formerly Syntrino Solutions</em></span>
+              <span class="exp-current">Current</span>
+            </span>
+            <span class="exp-plus" aria-hidden="true">+</span>
+          </button>
+          <div class="exp-panel" data-open="true">
+            <ul class="exp-bullets" role="list">
+              <li><span class="bullet">—</span><span>Lead continuous development and maintenance of payment gateway and related fintech products.</span></li>
+              <li><span class="bullet">—</span><span>Shipped gateway enhancements including terminal integration, POS module, e-invoicing, and e-wallet integration.</span></li>
+              <li><span class="bullet">—</span><span>Pioneered AI-assisted development workflows across the team — sizable gains in coding, docs, and reporting.</span></li>
+              <li><span class="bullet">—</span><span>Supported PCI DSS compliance and multi-intermediary LHDN integration.</span></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="reveal" data-delay="60">
+          <button class="exp-btn" aria-expanded="false">
+            <span class="mono dim exp-years">2024 — 2025</span>
+            <span class="exp-main">
+              <span class="exp-role">Software Development Manager</span>
+              <span class="exp-org">Syntrino Solutions</span>
+            </span>
+            <span class="exp-plus" aria-hidden="true">+</span>
+          </button>
+          <div class="exp-panel">
+            <ul class="exp-bullets" role="list">
+              <li><span class="bullet">—</span><span>Led the team in continuous development and maintenance of the payment gateway.</span></li>
+              <li><span class="bullet">—</span><span>Achieved Peppol Certified Service Provider status in production.</span></li>
+              <li><span class="bullet">—</span><span>Led successful PCI DSS certification — ensured adherence to all applicable standards and audits.</span></li>
+              <li><span class="bullet">—</span><span>Managed infrastructure: Linux administration, networking, databases, and deployment pipelines.</span></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="reveal" data-delay="120">
+          <button class="exp-btn" aria-expanded="false">
+            <span class="mono dim exp-years">2020 — 2024</span>
+            <span class="exp-main">
+              <span class="exp-role">Developer</span>
+              <span class="exp-org">Syntrino Solutions</span>
+            </span>
+            <span class="exp-plus" aria-hidden="true">+</span>
+          </button>
+          <div class="exp-panel">
+            <ul class="exp-bullets" role="list">
+              <li><span class="bullet">—</span><span>Developed and maintained the payment gateway end-to-end — frontend, API, database, deployment.</span></li>
+              <li><span class="bullet">—</span><span>Built a B2B prepaid app for digital products — mobile app, backend API, and store deployment.</span></li>
+              <li><span class="bullet">—</span><span>Administered Linux servers, networking, and MySQL/MariaDB supporting production.</span></li>
+              <li><span class="bullet">—</span><span>Built and maintained CI/CD pipelines and managed cloud infrastructure on Azure.</span></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="reveal" data-delay="180">
+          <button class="exp-btn" aria-expanded="false">
+            <span class="mono dim exp-years">2019 — 2020</span>
+            <span class="exp-main">
+              <span class="exp-role">Web Application Developer</span>
+              <span class="exp-org">Asia Pacific University of Technology and Innovation</span>
+            </span>
+            <span class="exp-plus" aria-hidden="true">+</span>
+          </button>
+          <div class="exp-panel">
+            <ul class="exp-bullets" role="list">
+              <li><span class="bullet">—</span><span>Led full-stack implementation of Outcome-based Education Assessment per Malaysian Qualification Framework.</span></li>
+              <li><span class="bullet">—</span><span>Created analytical reports that helped the university refine programmes and courses.</span></li>
+              <li><span class="bullet">—</span><span>Configured CI/CD pipelines across projects.</span></li>
+              <li><span class="bullet">—</span><span>Built scheduled sync scripts to transform data across heterogeneous database schemas.</span></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="reveal" data-delay="240">
+          <button class="exp-btn" aria-expanded="false">
+            <span class="mono dim exp-years">2018 — 2019</span>
+            <span class="exp-main">
+              <span class="exp-role">R&amp;D Assistant</span>
+              <span class="exp-org">Asia Pacific University of Technology and Innovation</span>
+            </span>
+            <span class="exp-plus" aria-hidden="true">+</span>
+          </button>
+          <div class="exp-panel">
+            <ul class="exp-bullets" role="list">
+              <li><span class="bullet">—</span><span>Maintained the front-end of a major application used by academic staff.</span></li>
+              <li><span class="bullet">—</span><span>Led a full-stack project for university administrators to manage programmes.</span></li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="reveal" data-delay="240">
+          <button class="exp-btn" aria-expanded="false">
+            <span class="mono dim exp-years">2018</span>
+            <span class="exp-main">
+              <span class="exp-role">Academic Intern</span>
+              <span class="exp-org">Asia Pacific University of Technology and Innovation</span>
+            </span>
+            <span class="exp-plus" aria-hidden="true">+</span>
+          </button>
+          <div class="exp-panel">
+            <ul class="exp-bullets" role="list">
+              <li><span class="bullet">—</span><span>Front-end development on a major application used by academic staff.</span></li>
+              <li><span class="bullet">—</span><span>Exposure to serverless architecture and cloud deployment concepts.</span></li>
+              <li><span class="bullet">—</span><span>Worked with Flask, Ionic/Angular, and AWS for full-stack delivery.</span></li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== ACHIEVEMENTS ===== -->
+  <section id="achievements" class="section">
+    <div class="wrap">
+      <div class="section-label">
+        <span class="section-num">03</span>
+        <span class="section-rule" aria-hidden="true"></span>
+        <span class="section-title">Key Achievements</span>
+      </div>
+      <div class="reveal">
+        <h2 class="h2 section-heading">Shipped in <em>production</em>.</h2>
+      </div>
+      <div class="ach-grid">
+
+        <article class="ach-card reveal">
+          <span class="mono dim ach-year">2020 — Present</span>
+          <div class="ach-body">
+            <h3 class="ach-title">Payment Gateway Platform</h3>
+            <ul class="ach-bullets" role="list">
+              <li>Delivered integrations across major payment methods — FPX, credit card (MPGS), and popular e-wallets (Touch 'n Go, DUITNOW QR).</li>
+              <li>Led the company to achieve and maintain PCI DSS compliance (2024–2026), currently certified under PCI DSS v4.0.1.</li>
+            </ul>
+          </div>
+          <div class="ach-chip" aria-hidden="true">
+            <svg width="88" height="55" viewBox="0 0 120 76" fill="none">
+              <rect x="0.5" y="0.5" width="119" height="75" rx="8" stroke="currentColor" opacity="0.2" />
+              <rect x="14" y="20" width="22" height="18" rx="3" stroke="var(--accent)" stroke-width="1.25" />
+              <line x1="14" y1="26" x2="36" y2="26" stroke="var(--accent)" stroke-width="0.75" />
+              <line x1="14" y1="32" x2="36" y2="32" stroke="var(--accent)" stroke-width="0.75" />
+              <line x1="25" y1="20" x2="25" y2="38" stroke="var(--accent)" stroke-width="0.75" />
+              <path d="M44 20 Q52 29 44 38" stroke="var(--accent)" stroke-width="1" fill="none" />
+              <path d="M50 17 Q60 29 50 41" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.6" />
+              <path d="M56 14 Q68 29 56 44" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.3" />
+              <g fill="currentColor" opacity="0.4">
+                <rect x="14" y="50" width="4" height="2" rx="0.5" /><rect x="21" y="50" width="4" height="2" rx="0.5" /><rect x="28" y="50" width="4" height="2" rx="0.5" /><rect x="35" y="50" width="4" height="2" rx="0.5" />
+                <rect x="14" y="56" width="4" height="2" rx="0.5" /><rect x="21" y="56" width="4" height="2" rx="0.5" /><rect x="28" y="56" width="4" height="2" rx="0.5" /><rect x="35" y="56" width="4" height="2" rx="0.5" />
+                <rect x="14" y="62" width="4" height="2" rx="0.5" /><rect x="21" y="62" width="4" height="2" rx="0.5" /><rect x="28" y="62" width="4" height="2" rx="0.5" /><rect x="35" y="62" width="4" height="2" rx="0.5" />
+              </g>
+            </svg>
+          </div>
+        </article>
+
+        <article class="ach-card reveal" data-delay="80">
+          <span class="mono dim ach-year">2023</span>
+          <div class="ach-body">
+            <h3 class="ach-title">Unifi Mobile Dealer App</h3>
+            <ul class="ach-bullets" role="list">
+              <li>Independently built and shipped the full backend integration layer connecting to TM APIs, powering the Unifi Mobile Dealer App.</li>
+            </ul>
+          </div>
+          <div class="ach-chip" aria-hidden="true">
+            <svg width="88" height="55" viewBox="0 0 120 76" fill="none">
+              <rect x="0.5" y="0.5" width="119" height="75" rx="8" stroke="currentColor" opacity="0.2" />
+              <rect x="14" y="20" width="22" height="18" rx="3" stroke="var(--accent)" stroke-width="1.25" />
+              <line x1="14" y1="26" x2="36" y2="26" stroke="var(--accent)" stroke-width="0.75" />
+              <line x1="14" y1="32" x2="36" y2="32" stroke="var(--accent)" stroke-width="0.75" />
+              <line x1="25" y1="20" x2="25" y2="38" stroke="var(--accent)" stroke-width="0.75" />
+              <path d="M44 20 Q52 29 44 38" stroke="var(--accent)" stroke-width="1" fill="none" />
+              <path d="M50 17 Q60 29 50 41" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.6" />
+              <path d="M56 14 Q68 29 56 44" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.3" />
+            </svg>
+          </div>
+        </article>
+
+        <article class="ach-card reveal" data-delay="160">
+          <span class="mono dim ach-year">2025</span>
+          <div class="ach-body">
+            <h3 class="ach-title">Peppol Certified Service Provider</h3>
+            <ul class="ach-bullets" role="list">
+              <li>Helped Syntrino Solutions achieve Peppol Certified Service Provider status in production — enabling compliant e-invoicing for clients.</li>
+            </ul>
+          </div>
+          <div class="ach-chip" aria-hidden="true">
+            <svg width="88" height="55" viewBox="0 0 120 76" fill="none">
+              <rect x="0.5" y="0.5" width="119" height="75" rx="8" stroke="currentColor" opacity="0.2" />
+              <rect x="14" y="20" width="22" height="18" rx="3" stroke="var(--accent)" stroke-width="1.25" />
+              <line x1="14" y1="26" x2="36" y2="26" stroke="var(--accent)" stroke-width="0.75" />
+              <line x1="14" y1="32" x2="36" y2="32" stroke="var(--accent)" stroke-width="0.75" />
+              <line x1="25" y1="20" x2="25" y2="38" stroke="var(--accent)" stroke-width="0.75" />
+              <path d="M44 20 Q52 29 44 38" stroke="var(--accent)" stroke-width="1" fill="none" />
+              <path d="M50 17 Q60 29 50 41" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.6" />
+              <path d="M56 14 Q68 29 56 44" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.3" />
+            </svg>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="section">
+    <div class="wrap">
+      <div class="section-label">
+        <span class="section-num">04</span>
+        <span class="section-rule" aria-hidden="true"></span>
+        <span class="section-title">Skills</span>
+      </div>
+      <div class="reveal">
+        <h2 class="h2 section-heading">A <em>broad</em> technical toolkit.</h2>
+      </div>
+      <div class="skills-grid">
+
+        <div class="reveal skill-group">
+          <span class="mono dim skill-group-label">01 · Languages / Frameworks</span>
+          <ul class="skill-chips" role="list">
+            <li class="chip">Python</li><li class="chip">C# / .NET</li><li class="chip">JavaScript</li><li class="chip">TypeScript</li><li class="chip">React</li><li class="chip">React Native</li><li class="chip">Angular</li><li class="chip">Ionic</li><li class="chip">Flask</li>
+          </ul>
+        </div>
+
+        <div class="reveal skill-group" data-delay="80">
+          <span class="mono dim skill-group-label">02 · Infrastructure &amp; Tools</span>
+          <ul class="skill-chips" role="list">
+            <li class="chip">Linux</li><li class="chip">AWS</li><li class="chip">Azure</li><li class="chip">Terraform</li><li class="chip">Firebase</li><li class="chip">GitLab CI/CD</li><li class="chip">GitHub Actions</li><li class="chip">RabbitMQ</li><li class="chip">Azure Service Bus</li><li class="chip">Docker</li><li class="chip">OpenTelemetry</li><li class="chip">Prometheus</li><li class="chip">Jira / Confluence</li>
+          </ul>
+        </div>
+
+        <div class="reveal skill-group" data-delay="160">
+          <span class="mono dim skill-group-label">03 · Databases</span>
+          <ul class="skill-chips" role="list">
+            <li class="chip">SQL Server / Azure SQL</li><li class="chip">MySQL / MariaDB</li><li class="chip">SQLite</li>
+          </ul>
+        </div>
+
+        <div class="reveal skill-group" data-delay="240">
+          <span class="mono dim skill-group-label">04 · Practices &amp; Methodologies</span>
+          <ul class="skill-chips" role="list">
+            <li class="chip">DevOps</li><li class="chip">PCI DSS</li><li class="chip">OWASP Top 10</li><li class="chip">OWASP API Security Top 10</li><li class="chip">DDD / CQRS</li><li class="chip">Peppol / E-Invoicing</li><li class="chip">Git Workflows</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDUCATION ===== -->
+  <section id="education" class="section">
+    <div class="wrap">
+      <div class="section-label">
+        <span class="section-num">05</span>
+        <span class="section-rule" aria-hidden="true"></span>
+        <span class="section-title">Education</span>
+      </div>
+      <div class="edu-list">
+        <div class="edu-row reveal">
+          <span class="mono dim">2016 — 2019</span>
+          <div>
+            <div class="edu-title">Bachelor's Degree in Software Engineering</div>
+            <div class="edu-org">Asia Pacific University &amp; Staffordshire University (Dual Award)</div>
+          </div>
+        </div>
+        <div class="edu-row reveal" data-delay="80">
+          <span class="mono dim">2015 — 2016</span>
+          <div>
+            <div class="edu-title">Foundation in Computing &amp; Technology</div>
+            <div class="edu-org">Asia Pacific University</div>
+          </div>
+        </div>
+        <div class="edu-row reveal" data-delay="160">
+          <span class="mono dim">2010 — 2014</span>
+          <div>
+            <div class="edu-title">Malaysian Certificate of Education (SPM)</div>
+            <div class="edu-org">SMK Raja Ali</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="section">
+    <div class="wrap">
+      <div class="section-label">
+        <span class="section-num">06</span>
+        <span class="section-rule" aria-hidden="true"></span>
+        <span class="section-title">Contact</span>
+      </div>
+      <div class="reveal">
+        <div class="contact-heading">
+          Open to <em>fintech, payments,</em><br>
+          and <em>infrastructure</em> conversations.
+        </div>
+      </div>
+      <div class="reveal contact-list" data-delay="150">
+        <a class="contact-row" href="mailto:peu.thian@gmail.com">
+          <span class="mono dim">Email</span>
+          <span class="contact-value">peu.thian@gmail.com</span>
+          <span class="contact-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="contact-row" href="https://github.com/ken30" target="_blank" rel="noopener">
+          <span class="mono dim">GitHub</span>
+          <span class="contact-value">github.com/ken30</span>
+          <span class="contact-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="contact-row" href="https://www.linkedin.com/in/peu-wai-thian-51560815a" target="_blank" rel="noopener">
+          <span class="mono dim">LinkedIn</span>
+          <span class="contact-value">peu-wai-thian</span>
+          <span class="contact-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span class="mono dim footer-copy">&copy; <span id="year">2026</span> Peu Wai Thian · Kuala Lumpur</span>
+    <span class="mono dim">Redesign · Editorial theme</span>
+  </div>
+</footer>
+
+<script src="scripts/main.js"></script>
 </body>
 </html>
