@@ -36,7 +36,8 @@ Single "Editorial" theme (Parchment & Amber): `--bg: #f3efe7`, `--accent: #a54a2
 - The `<head>` script adds `motion` to `<html>` unless the visitor prefers reduced motion; `main.js`'s `onerror` removes it if the script fails to load. **Every rule that starts content hidden must be scoped under `.motion`**, so no-JS and reduced-motion visitors always get a complete, static page.
 - `.reveal` elements (and `.section-label`) get `is-visible` from an IntersectionObserver; `data-delay` (ms) staggers them.
 - Split text: `.hero-title` is split into letters (`.c`), `.h2` and `.contact-heading` into words (`.w-i`), each inside a clipping mask (`.w`). A visually hidden copy (`.sr-only`) keeps the text readable to screen readers. Hero letters have kerning restored as margins after fonts load.
-- Hairline rules on `.hero-meta`, `.stat`, `.exp-btn`, `.edu-row` and `.contact-row` are drawn as backgrounds (`background-size` animates), not borders.
+- Hairline rules on `.hero-meta`, `.stat`, `.exp-btn`, `.edu-row`, `.lang` and `.contact-row` are drawn as backgrounds (`background-size` animates), not borders.
+- Experience panels open by animating `grid-template-rows` from `0fr` to `1fr`, so any amount of content fits; keep vertical padding off `.exp-bullets` itself or closed panels won't collapse to zero.
 - When an element is both `.reveal` and has its own transitions, list them together in one `.motion …` rule; otherwise the more specific `.motion .reveal` transition silently replaces them.
 - Print styles force every animated element to its final state.
 
