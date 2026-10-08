@@ -7,8 +7,9 @@
 <title>Peu Wai Thian — Fintech & Payment Systems Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles/styles.css">
+<script>if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('motion');</script>
 </head>
 <body>
 
@@ -35,14 +36,13 @@
 
   <!-- ===== HERO ===== -->
   <section id="hero" class="hero">
+    <canvas id="hero-guilloche" class="hero-guilloche" aria-hidden="true"></canvas>
     <div class="wrap">
       <div class="reveal">
         <span class="mono dim hero-eyebrow">Kuala Lumpur · Malaysia ⟶ Fintech &amp; Payment Systems</span>
       </div>
-      <div class="reveal" data-delay="120">
-        <h1 class="hero-title">Peu <em>Wai</em> Thian.</h1>
-      </div>
-      <div class="reveal" data-delay="240">
+      <h1 class="hero-title">Peu <em>Wai</em> Thian.</h1>
+      <div class="reveal" data-delay="700">
         <div class="hero-lede">
           <p class="hero-lede-text">
             Software engineer building secure, scalable payment infrastructure —
@@ -55,7 +55,7 @@
           </div>
         </div>
       </div>
-      <div class="reveal" data-delay="360">
+      <div class="reveal" data-delay="900">
         <dl class="hero-meta">
           <div>
             <dt class="mono dim">Currently</dt>
@@ -89,22 +89,22 @@
       <div class="about-grid">
         <div class="reveal">
           <h2 class="h2">Engineering <em class="accent">trust</em> into systems that move money.</h2>
-          <p class="about-body">
+          <p class="about-body reveal" data-delay="300">
             Software engineer with 8+ years building and leading fintech products — from payment gateway integrations and PCI DSS compliance to CI/CD pipelines and cloud infrastructure. Hands-on across the full stack, with a focus on secure, scalable systems.
           </p>
         </div>
         <div class="reveal" data-delay="150">
           <div class="stats-grid">
             <div class="stat">
-              <div class="stat-n" data-count="8" data-suffix="+">0</div>
+              <div class="stat-n" data-count="8" data-suffix="+">8+</div>
               <span class="mono dim">Years experience</span>
             </div>
             <div class="stat">
-              <div class="stat-n" data-count="3">0</div>
+              <div class="stat-n" data-count="3">3</div>
               <span class="mono dim">Organizations</span>
             </div>
             <div class="stat">
-              <div class="stat-n" data-count="6">0</div>
+              <div class="stat-n" data-count="6">6</div>
               <span class="mono dim">Roles held</span>
             </div>
             <div class="stat">
@@ -271,20 +271,17 @@
             </ul>
           </div>
           <div class="ach-chip" aria-hidden="true">
-            <svg width="88" height="55" viewBox="0 0 120 76" fill="none">
-              <rect x="0.5" y="0.5" width="119" height="75" rx="8" stroke="currentColor" opacity="0.2" />
-              <rect x="14" y="20" width="22" height="18" rx="3" stroke="var(--accent)" stroke-width="1.25" />
-              <line x1="14" y1="26" x2="36" y2="26" stroke="var(--accent)" stroke-width="0.75" />
-              <line x1="14" y1="32" x2="36" y2="32" stroke="var(--accent)" stroke-width="0.75" />
-              <line x1="25" y1="20" x2="25" y2="38" stroke="var(--accent)" stroke-width="0.75" />
-              <path d="M44 20 Q52 29 44 38" stroke="var(--accent)" stroke-width="1" fill="none" />
-              <path d="M50 17 Q60 29 50 41" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.6" />
-              <path d="M56 14 Q68 29 56 44" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.3" />
-              <g fill="currentColor" opacity="0.4">
-                <rect x="14" y="50" width="4" height="2" rx="0.5" /><rect x="21" y="50" width="4" height="2" rx="0.5" /><rect x="28" y="50" width="4" height="2" rx="0.5" /><rect x="35" y="50" width="4" height="2" rx="0.5" />
-                <rect x="14" y="56" width="4" height="2" rx="0.5" /><rect x="21" y="56" width="4" height="2" rx="0.5" /><rect x="28" y="56" width="4" height="2" rx="0.5" /><rect x="35" y="56" width="4" height="2" rx="0.5" />
-                <rect x="14" y="62" width="4" height="2" rx="0.5" /><rect x="21" y="62" width="4" height="2" rx="0.5" /><rect x="28" y="62" width="4" height="2" rx="0.5" /><rect x="35" y="62" width="4" height="2" rx="0.5" />
-              </g>
+            <svg width="88" height="55" viewBox="0 0 120 76" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Card with EMV chip and contactless waves -->
+              <path class="draw" d="M8.5 0.5 H111.5 A8 8 0 0 1 119.5 8.5 V67.5 A8 8 0 0 1 111.5 75.5 H8.5 A8 8 0 0 1 0.5 67.5 V8.5 A8 8 0 0 1 8.5 0.5 Z" pathLength="1" style="--d:0" opacity="0.2" />
+              <path class="draw acc" d="M17 20 H33 A3 3 0 0 1 36 23 V35 A3 3 0 0 1 33 38 H17 A3 3 0 0 1 14 35 V23 A3 3 0 0 1 17 20 Z" pathLength="1" style="--d:1" stroke-width="1.25" />
+              <path class="draw acc" d="M14 26 H36" pathLength="1" style="--d:2" stroke-width="0.75" />
+              <path class="draw acc" d="M14 32 H36" pathLength="1" style="--d:2" stroke-width="0.75" />
+              <path class="draw acc" d="M25 20 V38" pathLength="1" style="--d:3" stroke-width="0.75" />
+              <path class="draw acc pulse" d="M44 20 Q52 29 44 38" pathLength="1" style="--d:4;--w:0" />
+              <path class="draw acc pulse" d="M50 17 Q60 29 50 41" pathLength="1" style="--d:5;--w:1" opacity="0.6" />
+              <path class="draw acc pulse" d="M56 14 Q68 29 56 44" pathLength="1" style="--d:6;--w:2" opacity="0.3" />
+              <g class="fade" fill="currentColor" stroke="none" opacity="0.4" style="--d:6"><rect x="14" y="50" width="4" height="2" rx="0.5" /><rect x="21" y="50" width="4" height="2" rx="0.5" /><rect x="28" y="50" width="4" height="2" rx="0.5" /><rect x="35" y="50" width="4" height="2" rx="0.5" /><rect x="14" y="56" width="4" height="2" rx="0.5" /><rect x="21" y="56" width="4" height="2" rx="0.5" /><rect x="28" y="56" width="4" height="2" rx="0.5" /><rect x="35" y="56" width="4" height="2" rx="0.5" /><rect x="14" y="62" width="4" height="2" rx="0.5" /><rect x="21" y="62" width="4" height="2" rx="0.5" /><rect x="28" y="62" width="4" height="2" rx="0.5" /><rect x="35" y="62" width="4" height="2" rx="0.5" /></g>
             </svg>
           </div>
         </article>
@@ -298,15 +295,21 @@
             </ul>
           </div>
           <div class="ach-chip" aria-hidden="true">
-            <svg width="88" height="55" viewBox="0 0 120 76" fill="none">
-              <rect x="0.5" y="0.5" width="119" height="75" rx="8" stroke="currentColor" opacity="0.2" />
-              <rect x="14" y="20" width="22" height="18" rx="3" stroke="var(--accent)" stroke-width="1.25" />
-              <line x1="14" y1="26" x2="36" y2="26" stroke="var(--accent)" stroke-width="0.75" />
-              <line x1="14" y1="32" x2="36" y2="32" stroke="var(--accent)" stroke-width="0.75" />
-              <line x1="25" y1="20" x2="25" y2="38" stroke="var(--accent)" stroke-width="0.75" />
-              <path d="M44 20 Q52 29 44 38" stroke="var(--accent)" stroke-width="1" fill="none" />
-              <path d="M50 17 Q60 29 50 41" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.6" />
-              <path d="M56 14 Q68 29 56 44" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.3" />
+            <svg width="88" height="55" viewBox="0 0 120 76" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Dealer app talking to backend services through an API layer -->
+              <path class="draw" d="M8.5 0.5 H111.5 A8 8 0 0 1 119.5 8.5 V67.5 A8 8 0 0 1 111.5 75.5 H8.5 A8 8 0 0 1 0.5 67.5 V8.5 A8 8 0 0 1 8.5 0.5 Z" pathLength="1" style="--d:0" opacity="0.2" />
+              <path class="draw" d="M18 14 H30 A4 4 0 0 1 34 18 V52 A4 4 0 0 1 30 56 H18 A4 4 0 0 1 14 52 V18 A4 4 0 0 1 18 14 Z" pathLength="1" style="--d:1" opacity="0.7" />
+              <path class="draw" d="M19 22 H29" pathLength="1" style="--d:2" opacity="0.4" />
+              <path class="draw" d="M19 27 H26" pathLength="1" style="--d:2" opacity="0.4" />
+              <path class="draw" d="M21 50 H27" pathLength="1" style="--d:2" opacity="0.7" />
+              <path class="draw acc" d="M34 35 H54" pathLength="1" style="--d:3" />
+              <path class="draw acc" d="M59 30 L64 35 L59 40 L54 35 Z" pathLength="1" style="--d:4" stroke-width="1.25" />
+              <path class="draw acc" d="M64 35 H84" pathLength="1" style="--d:5" />
+              <path class="flow acc" d="M34 35 H84" />
+              <path class="draw" d="M86.5 14 H103.5 A2.5 2.5 0 0 1 106 16.5 V24.5 A2.5 2.5 0 0 1 103.5 27 H86.5 A2.5 2.5 0 0 1 84 24.5 V16.5 A2.5 2.5 0 0 1 86.5 14 Z" pathLength="1" style="--d:5" opacity="0.7" />
+              <path class="draw" d="M86.5 30 H103.5 A2.5 2.5 0 0 1 106 32.5 V40.5 A2.5 2.5 0 0 1 103.5 43 H86.5 A2.5 2.5 0 0 1 84 40.5 V32.5 A2.5 2.5 0 0 1 86.5 30 Z" pathLength="1" style="--d:6" opacity="0.7" />
+              <path class="draw" d="M86.5 46 H103.5 A2.5 2.5 0 0 1 106 48.5 V56.5 A2.5 2.5 0 0 1 103.5 59 H86.5 A2.5 2.5 0 0 1 84 56.5 V48.5 A2.5 2.5 0 0 1 86.5 46 Z" pathLength="1" style="--d:7" opacity="0.7" />
+              <g class="fade acc-fill" stroke="none" style="--d:7"><circle cx="89.5" cy="20.5" r="1.3" /><circle cx="89.5" cy="36.5" r="1.3" /><circle cx="89.5" cy="52.5" r="1.3" /></g>
             </svg>
           </div>
         </article>
@@ -320,15 +323,24 @@
             </ul>
           </div>
           <div class="ach-chip" aria-hidden="true">
-            <svg width="88" height="55" viewBox="0 0 120 76" fill="none">
-              <rect x="0.5" y="0.5" width="119" height="75" rx="8" stroke="currentColor" opacity="0.2" />
-              <rect x="14" y="20" width="22" height="18" rx="3" stroke="var(--accent)" stroke-width="1.25" />
-              <line x1="14" y1="26" x2="36" y2="26" stroke="var(--accent)" stroke-width="0.75" />
-              <line x1="14" y1="32" x2="36" y2="32" stroke="var(--accent)" stroke-width="0.75" />
-              <line x1="25" y1="20" x2="25" y2="38" stroke="var(--accent)" stroke-width="0.75" />
-              <path d="M44 20 Q52 29 44 38" stroke="var(--accent)" stroke-width="1" fill="none" />
-              <path d="M50 17 Q60 29 50 41" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.6" />
-              <path d="M56 14 Q68 29 56 44" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.3" />
+            <svg width="88" height="55" viewBox="0 0 120 76" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Certified e-invoice sent across a network -->
+              <path class="draw" d="M8.5 0.5 H111.5 A8 8 0 0 1 119.5 8.5 V67.5 A8 8 0 0 1 111.5 75.5 H8.5 A8 8 0 0 1 0.5 67.5 V8.5 A8 8 0 0 1 8.5 0.5 Z" pathLength="1" style="--d:0" opacity="0.2" />
+              <path class="draw" d="M16 12 H40 L48 20 V64 H16 Z" pathLength="1" style="--d:1" opacity="0.7" />
+              <path class="draw" d="M40 12 V20 H48" pathLength="1" style="--d:2" opacity="0.7" />
+              <path class="draw" d="M22 28 H42" pathLength="1" style="--d:2" opacity="0.4" />
+              <path class="draw" d="M22 34 H42" pathLength="1" style="--d:3" opacity="0.4" />
+              <path class="draw" d="M22 40 H34" pathLength="1" style="--d:3" opacity="0.4" />
+              <g class="stamp">
+                <path class="draw acc" d="M37 56 A9 9 0 1 1 55 56 A9 9 0 1 1 37 56 Z" pathLength="1" style="--d:4" stroke-width="1.25" />
+                <path class="draw acc" d="M41.5 56 L44.5 59 L50.5 53" pathLength="1" style="--d:5" stroke-width="1.25" />
+              </g>
+              <path class="draw acc" d="M60 38 H76" pathLength="1" style="--d:5" />
+              <path class="draw acc" d="M72 34 L76 38 L72 42" pathLength="1" style="--d:6" />
+              <path class="flow acc" d="M58 38 H76" />
+              <path class="draw" d="M83 38 A13 13 0 1 1 109 38 A13 13 0 1 1 83 38 Z" pathLength="1" style="--d:6" opacity="0.7" />
+              <path class="draw" d="M96 25 A6.5 13 0 0 1 96 51 A6.5 13 0 0 1 96 25 Z" pathLength="1" style="--d:7" opacity="0.5" />
+              <path class="draw" d="M83 38 H109" pathLength="1" style="--d:7" opacity="0.5" />
             </svg>
           </div>
         </article>
@@ -345,15 +357,23 @@
             </ul>
           </div>
           <div class="ach-chip" aria-hidden="true">
-            <svg width="88" height="55" viewBox="0 0 120 76" fill="none">
-              <rect x="0.5" y="0.5" width="119" height="75" rx="8" stroke="currentColor" opacity="0.2" />
-              <rect x="14" y="20" width="22" height="18" rx="3" stroke="var(--accent)" stroke-width="1.25" />
-              <line x1="14" y1="26" x2="36" y2="26" stroke="var(--accent)" stroke-width="0.75" />
-              <line x1="14" y1="32" x2="36" y2="32" stroke="var(--accent)" stroke-width="0.75" />
-              <line x1="25" y1="20" x2="25" y2="38" stroke="var(--accent)" stroke-width="0.75" />
-              <path d="M44 20 Q52 29 44 38" stroke="var(--accent)" stroke-width="1" fill="none" />
-              <path d="M50 17 Q60 29 50 41" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.6" />
-              <path d="M56 14 Q68 29 56 44" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.3" />
+            <svg width="88" height="55" viewBox="0 0 120 76" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Customer app verifying identity with a face scan -->
+              <path class="draw" d="M8.5 0.5 H111.5 A8 8 0 0 1 119.5 8.5 V67.5 A8 8 0 0 1 111.5 75.5 H8.5 A8 8 0 0 1 0.5 67.5 V8.5 A8 8 0 0 1 8.5 0.5 Z" pathLength="1" style="--d:0" opacity="0.2" />
+              <path class="draw" d="M35 6 H57 A5 5 0 0 1 62 11 V65 A5 5 0 0 1 57 70 H35 A5 5 0 0 1 30 65 V11 A5 5 0 0 1 35 6 Z" pathLength="1" style="--d:1" opacity="0.7" />
+              <path class="draw" d="M42 11 H50" pathLength="1" style="--d:2" opacity="0.7" />
+              <path class="draw acc" d="M36 24 V19 H41" pathLength="1" style="--d:3" />
+              <path class="draw acc" d="M51 19 H56 V24" pathLength="1" style="--d:3" />
+              <path class="draw acc" d="M36 37 V42 H41" pathLength="1" style="--d:3" />
+              <path class="draw acc" d="M51 42 H56 V37" pathLength="1" style="--d:3" />
+              <path class="draw" d="M41.5 27 A4.5 4.5 0 1 1 50.5 27 A4.5 4.5 0 1 1 41.5 27 Z" pathLength="1" style="--d:4" opacity="0.7" />
+              <path class="draw" d="M39 40 Q46 32 53 40" pathLength="1" style="--d:4" opacity="0.7" />
+              <path class="scan acc" d="M36 20 H56" />
+              <path class="draw" d="M36 50 H56" pathLength="1" style="--d:5" opacity="0.4" />
+              <path class="draw" d="M36 55 H50" pathLength="1" style="--d:5" opacity="0.4" />
+              <path class="draw acc" d="M38.5 60 H53.5 A2.5 2.5 0 0 1 56 62.5 V62.5 A2.5 2.5 0 0 1 53.5 65 H38.5 A2.5 2.5 0 0 1 36 62.5 V62.5 A2.5 2.5 0 0 1 38.5 60 Z" pathLength="1" style="--d:6" />
+              <path class="draw acc" d="M88 24 L99 28.5 V37 C99 45 94 50 88 52.5 C82 50 77 45 77 37 V28.5 Z" pathLength="1" style="--d:6" stroke-width="1.25" />
+              <path class="draw acc" d="M83 38 L86.5 41.5 L93 35" pathLength="1" style="--d:7" stroke-width="1.25" />
             </svg>
           </div>
         </article>
@@ -369,15 +389,19 @@
             </ul>
           </div>
           <div class="ach-chip" aria-hidden="true">
-            <svg width="88" height="55" viewBox="0 0 120 76" fill="none">
-              <rect x="0.5" y="0.5" width="119" height="75" rx="8" stroke="currentColor" opacity="0.2" />
-              <rect x="14" y="20" width="22" height="18" rx="3" stroke="var(--accent)" stroke-width="1.25" />
-              <line x1="14" y1="26" x2="36" y2="26" stroke="var(--accent)" stroke-width="0.75" />
-              <line x1="14" y1="32" x2="36" y2="32" stroke="var(--accent)" stroke-width="0.75" />
-              <line x1="25" y1="20" x2="25" y2="38" stroke="var(--accent)" stroke-width="0.75" />
-              <path d="M44 20 Q52 29 44 38" stroke="var(--accent)" stroke-width="1" fill="none" />
-              <path d="M50 17 Q60 29 50 41" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.6" />
-              <path d="M56 14 Q68 29 56 44" stroke="var(--accent)" stroke-width="1" fill="none" opacity="0.3" />
+            <svg width="88" height="55" viewBox="0 0 120 76" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <!-- Identity card read alongside a fingerprint scan -->
+              <path class="draw" d="M8.5 0.5 H111.5 A8 8 0 0 1 119.5 8.5 V67.5 A8 8 0 0 1 111.5 75.5 H8.5 A8 8 0 0 1 0.5 67.5 V8.5 A8 8 0 0 1 8.5 0.5 Z" pathLength="1" style="--d:0" opacity="0.2" />
+              <path class="draw" d="M16 20 H54 A4 4 0 0 1 58 24 V46 A4 4 0 0 1 54 50 H16 A4 4 0 0 1 12 46 V24 A4 4 0 0 1 16 20 Z" pathLength="1" style="--d:1" opacity="0.7" />
+              <path class="draw" d="M19 26 H27 A2 2 0 0 1 29 28 V39 A2 2 0 0 1 27 41 H19 A2 2 0 0 1 17 39 V28 A2 2 0 0 1 19 26 Z" pathLength="1" style="--d:2" opacity="0.7" />
+              <path class="draw" d="M34 29 H52" pathLength="1" style="--d:3" opacity="0.4" />
+              <path class="draw" d="M34 34 H50" pathLength="1" style="--d:3" opacity="0.4" />
+              <path class="draw" d="M34 39 H45" pathLength="1" style="--d:4" opacity="0.4" />
+              <path class="draw acc pulse" d="M88 37 V43" pathLength="1" style="--d:4;--w:0" />
+              <path class="draw acc pulse" d="M84.17 43.21 A5 5 0 1 1 91.83 43.21" pathLength="1" style="--d:5;--w:1" />
+              <path class="draw acc pulse" d="M80.72 46.11 A9.5 9.5 0 1 1 95.28 46.11" pathLength="1" style="--d:6;--w:2" />
+              <path class="draw acc pulse" d="M77.28 49 A14 14 0 1 1 98.72 49" pathLength="1" style="--d:7;--w:3" />
+              <path class="draw acc pulse" d="M73.83 51.9 A18.5 18.5 0 1 1 102.17 51.9" pathLength="1" style="--d:8;--w:4" />
             </svg>
           </div>
         </article>
@@ -483,17 +507,17 @@
         <a class="contact-row" href="mailto:peu.thian@gmail.com">
           <span class="mono dim">Email</span>
           <span class="contact-value">peu.thian@gmail.com</span>
-          <span class="contact-arrow" aria-hidden="true">↗</span>
+          <span class="contact-arrow" aria-hidden="true"><span>↗</span></span>
         </a>
         <a class="contact-row" href="https://github.com/ken30" target="_blank" rel="noopener">
           <span class="mono dim">GitHub</span>
           <span class="contact-value">github.com/ken30</span>
-          <span class="contact-arrow" aria-hidden="true">↗</span>
+          <span class="contact-arrow" aria-hidden="true"><span>↗</span></span>
         </a>
         <a class="contact-row" href="https://www.linkedin.com/in/peu-wai-thian-51560815a" target="_blank" rel="noopener">
           <span class="mono dim">LinkedIn</span>
           <span class="contact-value">peu-wai-thian</span>
-          <span class="contact-arrow" aria-hidden="true">↗</span>
+          <span class="contact-arrow" aria-hidden="true"><span>↗</span></span>
         </a>
       </div>
     </div>
@@ -508,6 +532,7 @@
   </div>
 </footer>
 
-<script src="scripts/main.js"></script>
+<script src="scripts/guilloche.js"></script>
+<script src="scripts/main.js" onerror="document.documentElement.classList.remove('motion')"></script>
 </body>
 </html>

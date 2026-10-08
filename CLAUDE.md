@@ -18,28 +18,30 @@ There are no tests, linters, or CI/CD pipelines.
 
 ## Architecture
 
-**Single-page scroll layout** with six sections: Hero, About, Experience, Skills, Education, Contact.
+**Single-page scroll layout** with seven sections: Hero, About, Experience, Key Achievements (`#achievements`, "Work" in the nav), Skills, Education, Contact.
 
 ### Files
 
-- `index.html` — All content and structure; semantic HTML5 with ARIA attributes
-- `styles/main.css` — Full stylesheet (~1175 lines); CSS custom properties for theming, responsive breakpoints at 768px and 480px, print styles, and reduced-motion preferences
-- `scripts/main.js` — UI behavior in an IIFE: theme toggle (localStorage-persisted), scroll animations via Intersection Observer, animated counters, typed text effect, mobile hamburger menu, active nav tracking
-- `scripts/particles.js` — Canvas-based particle system in hero section with mouse/touch interaction, parallax, and visibility API pause
-- `references/` — Source resume content (Resume.md, Resume.docx, career summary)
+- `index.html` — All content and structure; semantic HTML5 with ARIA attributes. A one-line inline script in `<head>` sets the `motion` class (see below). Achievement cards carry inline SVG line-art icons.
+- `styles/styles.css` — Full stylesheet; CSS custom properties for tokens, responsive breakpoints at 880px and 720px, print styles, and reduced-motion handling
+- `scripts/main.js` — UI behavior in an IIFE: text splitting for the hero name and headings, reveal-on-scroll, nav scroll state and sliding active indicator, animated counters, experience accordion, scroll-linked experience timeline
+- `scripts/guilloche.js` — Canvas "guilloche" (banknote engraving) rosette behind the hero: engraves in on load, then redraws only on pointer movement (lens bulge) and scroll (counter-rotating bands)
 
 ### Design System
 
-Two themes toggled via `[data-theme]` attribute on `<html>`:
-- **Light:** Parchment & Amber (`--bg: #f5f0ea`, `--accent: #b06a2b`)
-- **Dark:** Obsidian & Amber (`--bg: #0a0a0c`, `--accent: #c27c3b`)
+Single "Editorial" theme (Parchment & Amber): `--bg: #f3efe7`, `--accent: #a54a2a`, plus `--surface`, `--ink`, `--dim`, `--rule`, and easing tokens `--ease` / `--ease-in-out`, all on `:root`. Spacing density comes from `data-density` on `<html>` (`compact` / `cozy` / `spacious`). Typography uses Google Fonts: Fraunces (display serif, loaded with the full `wght` axis so the hero can animate weight), Inter (body sans), and JetBrains Mono (captions).
 
-CSS variables defined under `:root` and `[data-theme="dark"]`. Typography uses Google Fonts: Fraunces (display/serif) and Figtree (body/sans-serif). Icons via Font Awesome 6.5.1 CDN.
+### Motion system
+
+- The `<head>` script adds `motion` to `<html>` unless the visitor prefers reduced motion; `main.js`'s `onerror` removes it if the script fails to load. **Every rule that starts content hidden must be scoped under `.motion`**, so no-JS and reduced-motion visitors always get a complete, static page.
+- `.reveal` elements (and `.section-label`) get `is-visible` from an IntersectionObserver; `data-delay` (ms) staggers them.
+- Split text: `.hero-title` is split into letters (`.c`), `.h2` and `.contact-heading` into words (`.w-i`), each inside a clipping mask (`.w`). A visually hidden copy (`.sr-only`) keeps the text readable to screen readers. Hero letters have kerning restored as margins after fonts load.
+- Hairline rules on `.hero-meta`, `.stat`, `.exp-btn`, `.edu-row` and `.contact-row` are drawn as backgrounds (`background-size` animates), not borders.
+- When an element is both `.reveal` and has its own transitions, list them together in one `.motion …` rule; otherwise the more specific `.motion .reveal` transition silently replaces them.
+- Print styles force every animated element to its final state.
 
 ### Key Patterns
 
 - All JS uses `'use strict'` inside IIFEs with no external dependencies
-- Animations respect `prefers-reduced-motion` — both JS files check this before enabling effects
 - Event listeners use `{ passive: true }` where applicable
-- Particle system is DPR-aware and adjusts count for mobile (30) vs desktop (60)
-- Print-to-PDF triggers `window.print()` with dedicated print styles in CSS
+- The guilloche canvas is DPR-aware (capped at 2), pauses when the hero is off-screen or the tab is hidden, and draws a single static frame under reduced motion

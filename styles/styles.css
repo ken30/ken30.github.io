@@ -15,6 +15,9 @@
   --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
 
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+
   /* cozy density */
   --pad-y: 6rem;
   --gap: 2rem;
@@ -91,6 +94,17 @@ body > footer {
   z-index: 1;
 }
 
+/* ----- Screen-reader only ----- */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 /* ----- Mono caption ----- */
 
 .mono {
@@ -121,6 +135,7 @@ body > footer {
   width: 3rem;
   height: 1px;
   background: var(--rule);
+  transform-origin: left;
 }
 .section-title {
   font-family: var(--serif);
@@ -147,21 +162,95 @@ body > footer {
   font-weight: 400;
 }
 .h2 em.accent { color: var(--accent); }
+.h2 em,
+.contact-heading em {
+  background: linear-gradient(var(--accent), var(--accent)) 0 100% / 100% .045em no-repeat;
+}
 .section-heading { margin-bottom: 3rem; }
 
-/* ----- Reveal animation ----- */
+/* ----- Motion -----
+   Everything that starts hidden is scoped to .motion, which the <head>
+   script sets only when JS runs and reduced motion isn't requested. */
 
-.reveal {
+.motion .reveal {
   opacity: 0;
   transform: translateY(16px);
   transition:
     opacity .7s ease,
-    transform .7s cubic-bezier(.2,.7,.2,1);
+    transform .7s var(--ease);
 }
-.reveal.is-visible {
+.motion .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
+
+/* Section eyebrow: number, then the rule is drawn, then the title */
+.motion .section-label > * {
+  transition: opacity .6s ease, transform .9s var(--ease);
+}
+.motion .section-label .section-rule { transition-delay: .1s; }
+.motion .section-label .section-title { transition-delay: .4s; }
+.motion .section-label:not(.is-visible) .section-num,
+.motion .section-label:not(.is-visible) .section-title {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+.motion .section-label:not(.is-visible) .section-rule { transform: scaleX(0); }
+
+/* Hairline rules are painted as a background so they can be drawn in */
+.hero-meta,
+.stat,
+.exp-btn,
+.edu-row,
+.contact-row {
+  border-top: 1px solid transparent;
+  background: linear-gradient(var(--rule), var(--rule)) 0 0 / 100% 1px no-repeat border-box;
+}
+.motion :is(.hero-meta, .stat, .exp-btn, .edu-row, .contact-row) {
+  transition: background-size 1.2s var(--ease);
+}
+.motion .edu-row.reveal {
+  transition:
+    opacity .7s ease,
+    transform .7s var(--ease),
+    background-size 1.2s var(--ease);
+}
+.motion :is(.stat, .contact-row):nth-child(2) { transition-delay: 90ms; }
+.motion :is(.stat, .contact-row):nth-child(3) { transition-delay: 180ms; }
+.motion .stat:nth-child(4) { transition-delay: 270ms; }
+.motion .reveal:not(.is-visible) :is(.hero-meta, .stat, .exp-btn, .contact-row),
+.motion .edu-row:not(.is-visible) {
+  background-size: 0 1px;
+}
+
+/* Typeset text: each word sits in a mask (.w) and rises into place.
+   Padding/negative margin give ascenders and italic overhangs room. */
+.w {
+  display: inline-block;
+  padding: .15em .12em .2em;
+  margin: -.15em -.12em -.2em;
+  clip-path: inset(-1em -1em 0 -1em);
+}
+.w-i,
+.c { display: inline-block; }
+
+.motion .w-i {
+  transform: translateY(135%);
+  transition: transform 1s var(--ease);
+  transition-delay: calc(var(--line, 0) * 110ms + var(--i, 0) * 14ms);
+}
+.motion .is-visible .w-i { transform: none; }
+/* Split headings animate per word, so their wrapper doesn't fade too */
+.motion .reveal:has(> .is-split) {
+  opacity: 1;
+  transform: none;
+}
+
+.motion :is(.h2, .contact-heading) em {
+  background-size: 0 .045em;
+  transition: background-size 1.1s var(--ease-in-out) .55s;
+}
+.motion .is-visible :is(.h2, .contact-heading) em { background-size: 100% .045em; }
 
 /* ==========================================================================
    NAV
@@ -186,6 +275,7 @@ body > footer {
   border-bottom: 1px solid var(--rule);
 }
 .nav-inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -236,6 +326,19 @@ body > footer {
   height: 2px;
   background: var(--accent);
 }
+.motion .nav-links a.is-active::after { content: none; }
+.nav-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .55s var(--ease), width .55s var(--ease), opacity .3s ease;
+}
+.nav-indicator.is-shown { opacity: 1; }
 .nav-num {
   font-family: var(--mono);
   font-size: 0.65rem;
@@ -256,6 +359,19 @@ body > footer {
   padding: 6rem 0 3rem;
   position: relative;
 }
+.hero > .wrap {
+  position: relative;
+  z-index: 1;
+}
+.hero-guilloche {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(100deg, transparent 15%, #000 60%);
+  mask-image: linear-gradient(100deg, transparent 15%, #000 60%);
+}
 .hero-eyebrow {
   display: block;
   margin-bottom: 2rem;
@@ -273,6 +389,17 @@ body > footer {
   font-style: italic;
   font-weight: 400;
 }
+
+/* Letters rise out of their word masks while the ink thickens from hairline */
+.motion .hero-title:not(.is-split) { opacity: 0; }
+.motion .hero-title .c {
+  animation:
+    char-rise 1.1s var(--ease) both,
+    char-ink 1.9s cubic-bezier(.3, .6, .3, 1) both;
+  animation-delay: calc(250ms + var(--i) * 60ms);
+}
+@keyframes char-rise { from { transform: translateY(110%); } }
+@keyframes char-ink { from { font-weight: 100; } }
 .hero-lede {
   margin-top: 2.5rem;
   display: grid;
@@ -300,7 +427,6 @@ body > footer {
 .hero-meta {
   margin-top: 5rem;
   padding-top: 2rem;
-  border-top: 1px solid var(--rule);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 2rem;
@@ -317,6 +443,10 @@ body > footer {
     gap: 2rem;
     align-items: start;
   }
+  .hero-guilloche {
+    -webkit-mask-image: linear-gradient(210deg, #000 10%, transparent 50%);
+    mask-image: linear-gradient(210deg, #000 10%, transparent 50%);
+  }
 }
 
 /* ----- CTA buttons ----- */
@@ -332,18 +462,21 @@ body > footer {
   border-radius: 999px;
   border: 1px solid var(--rule);
   color: var(--ink);
-  background: transparent;
-  transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+  background: transparent linear-gradient(var(--surface), var(--surface)) right center / 0% 100% no-repeat;
+  transition: background-size .5s var(--ease), border-color .3s ease, color .3s ease, transform .2s ease;
 }
-.btn:hover { background: var(--surface); }
+.btn:is(:hover, :focus-visible) {
+  background-position: left center;
+  background-size: 100% 100%;
+}
+.btn:active { transform: scale(.98); }
 .btn-primary {
-  background: var(--accent);
+  background-color: var(--accent);
+  background-image: linear-gradient(var(--ink), var(--ink));
   color: var(--bg);
   border-color: var(--accent);
 }
-.btn-primary:hover {
-  background: color-mix(in oklab, var(--accent) 85%, black);
-}
+.btn-primary:is(:hover, :focus-visible) { border-color: var(--ink); }
 
 /* ==========================================================================
    ABOUT
@@ -371,7 +504,6 @@ body > footer {
 }
 .stat {
   padding: 1.25rem 0;
-  border-top: 1px solid var(--rule);
 }
 .stat-n {
   font-family: var(--serif);
@@ -396,20 +528,59 @@ body > footer {
    ========================================================================== */
 
 .exp-list {
+  --rail-x: calc(7.5rem + 1rem);
   list-style: none;
   display: grid;
   gap: var(--gap);
+  position: relative;
+}
+
+/* Timeline rail in the gutter between years and roles. JS sets --progress
+   as the page scrolls; without motion it's simply full. */
+.exp-list::before,
+.exp-list::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--rail-x);
+  width: 1px;
+  background: var(--rule);
+}
+.exp-list::after {
+  background: var(--accent);
+  transform-origin: top;
+  transform: scaleY(var(--progress, 1));
+}
+.motion .exp-list { --progress: 0; }
+.exp-list > li { position: relative; }
+.exp-list > li::before {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 2.05rem;
+  left: var(--rail-x);
+  width: 9px;
+  height: 9px;
+  margin-left: -4px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: var(--accent);
+  transition: background-color .3s ease, border-color .3s ease, transform .5s var(--ease);
+}
+.motion .exp-list > li:not(.is-passed)::before {
+  background: var(--bg);
+  border-color: var(--rule);
+  transform: scale(.75);
 }
 .exp-btn {
   width: 100%;
   text-align: left;
   padding: 1.5rem 0;
-  border-top: 1px solid var(--rule);
   display: grid;
   grid-template-columns: 7.5rem 1fr auto;
   gap: 2rem;
   align-items: start;
-  transition: background-color .2s ease;
 }
 .exp-years { font-size: 0.72rem; padding-top: 0.4rem; }
 .exp-main { display: block; min-width: 0; }
@@ -459,7 +630,7 @@ body > footer {
 .exp-panel {
   max-height: 0;
   overflow: hidden;
-  transition: max-height .45s cubic-bezier(.2,.7,.2,1);
+  transition: max-height .45s var(--ease);
 }
 .exp-panel[data-open="true"] {
   max-height: 600px;
@@ -494,6 +665,9 @@ body > footer {
     padding-top: 0;
   }
   .exp-bullets { padding-left: 0; padding-right: 0; }
+  .exp-list { --rail-x: .25rem; }
+  .exp-list > li { padding-left: 1.75rem; }
+  .exp-list > li::before { top: 1.75rem; }
 }
 
 /* ==========================================================================
@@ -514,6 +688,13 @@ body > footer {
   gap: 2rem;
   align-items: start;
   transition: background-color .25s ease, border-color .25s ease;
+}
+.motion .ach-card.reveal {
+  transition:
+    opacity .7s ease,
+    transform .7s var(--ease),
+    background-color .25s ease,
+    border-color .25s ease;
 }
 .ach-card:hover {
   background: color-mix(in oklab, var(--accent) 4%, var(--surface));
@@ -540,10 +721,52 @@ body > footer {
 }
 .ach-chip {
   color: var(--ink);
-  opacity: 0.35;
+  opacity: 0.55;
   transition: opacity .25s ease;
 }
 .ach-card:hover .ach-chip { opacity: 1; }
+.ach-chip .acc { stroke: var(--accent); }
+.ach-chip .acc-fill { fill: var(--accent); }
+.ach-chip .draw { stroke-dasharray: 1; }
+.ach-chip .flow { stroke-dasharray: 2 4; }
+.ach-chip .flow,
+.ach-chip .scan { opacity: 0; }
+.ach-chip .stamp {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Line art engraves itself in once the card is revealed... */
+.motion .ach-chip .draw {
+  transition: stroke-dashoffset 1.1s var(--ease-in-out) calc(250ms + var(--d, 0) * 110ms);
+}
+.motion .ach-chip .fade {
+  transition: opacity .6s ease calc(250ms + var(--d, 0) * 110ms);
+}
+.motion .ach-card:not(.is-visible) .draw { stroke-dashoffset: 1; }
+.motion .ach-card:not(.is-visible) .fade { opacity: 0; }
+
+/* ...and comes alive on hover: waves pulse, data flows, scans sweep */
+.motion .ach-card:hover .pulse {
+  animation: chip-pulse 1.6s ease-in-out infinite;
+  animation-delay: calc(var(--w, 0) * 160ms);
+}
+.motion .ach-card:hover .flow {
+  opacity: 1;
+  animation: chip-flow .7s linear infinite;
+}
+.motion .ach-card:hover .scan { animation: chip-scan 1.8s var(--ease-in-out) infinite alternate; }
+.motion .ach-card:hover .stamp { animation: chip-stamp .5s var(--ease) both; }
+@keyframes chip-pulse {
+  0%, 100% { opacity: .25; }
+  30% { opacity: 1; }
+}
+@keyframes chip-flow { to { stroke-dashoffset: -6; } }
+@keyframes chip-scan {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(21px); }
+}
+@keyframes chip-stamp { from { opacity: 0; transform: scale(1.5); } }
 
 @media (max-width: 720px) {
   .ach-card { grid-template-columns: 1fr; gap: 1rem; }
@@ -599,7 +822,6 @@ body > footer {
   grid-template-columns: 7.5rem 1fr;
   gap: 2rem;
   padding: 1.5rem 0;
-  border-top: 1px solid var(--rule);
   align-items: start;
 }
 .edu-title {
@@ -645,7 +867,6 @@ body > footer {
   grid-template-columns: 7.5rem 1fr auto;
   gap: 2rem;
   padding: 1.5rem 0;
-  border-top: 1px solid var(--rule);
   align-items: center;
 }
 .contact-value {
@@ -657,17 +878,27 @@ body > footer {
   transition: color .2s ease;
 }
 .contact-arrow {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1;
   font-family: var(--mono);
   font-size: 0.9rem;
   color: var(--dim);
-  transition: color .2s ease, transform .25s ease;
+  transition: color .2s ease;
 }
-.contact-row:hover .contact-value,
-.contact-row:hover .contact-arrow {
+/* The shadow is a second arrow parked bottom-left; sliding both up-right
+   sends the first out and brings the second into its place. */
+.contact-arrow > span {
+  display: block;
+  text-shadow: -1.5em 1.5em currentColor;
+  transition: transform .5s var(--ease);
+}
+.contact-row:is(:hover, :focus-visible) .contact-value,
+.contact-row:is(:hover, :focus-visible) .contact-arrow {
   color: var(--accent);
 }
-.contact-row:hover .contact-arrow {
-  transform: translateX(4px);
+.contact-row:is(:hover, :focus-visible) .contact-arrow > span {
+  transform: translate(1.5em, -1.5em);
 }
 @media (max-width: 720px) {
   .contact-row {
@@ -700,11 +931,6 @@ body > footer {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
@@ -717,9 +943,13 @@ body > footer {
    ========================================================================== */
 
 @media print {
-  #navbar, .bg-motif, .hero-ctas, .contact-arrow, .exp-plus, .ach-chip { display: none !important; }
+  #navbar, .bg-motif, .hero-guilloche, .hero-ctas, .contact-arrow, .exp-plus, .ach-chip { display: none !important; }
   body { background: #fff; color: #000; }
-  .reveal { opacity: 1; transform: none; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal, .section-label > *, .w-i, .c { opacity: 1 !important; transform: none !important; }
+  :is(.hero-meta, .stat, .exp-btn, .edu-row, .contact-row) { background-size: 100% 1px !important; }
+  :is(.h2, .contact-heading) em { background-size: 100% .045em !important; }
+  .exp-list::before, .exp-list::after, .exp-list > li::before { display: none; }
   .exp-panel { max-height: none !important; }
   .section, .hero { padding: 1.5rem 0; page-break-inside: avoid; }
 }
